@@ -1,7 +1,7 @@
 .logo{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 50px;
 }
 
 /* .logo .icon__container,
@@ -13,10 +13,22 @@
 
 
 
+.icon__container {
+  background: transparent !important;
+}
+
+.icon__container img {
+  display: block;
+  background: transparent !important;
+}
+
+
+
+
 .logo .name {
     font-size: 2rem;
     color: var(--color-primary); /* This applies to "Ben" */
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .logo .highlight {
