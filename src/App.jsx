@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 
 import Electric from "./components/Services/Electric";
 import HVAC from "./components/Services/HVAC";
+<Route path="/hvac" element={<HVAC />} />
 
 function Home() {
   return (

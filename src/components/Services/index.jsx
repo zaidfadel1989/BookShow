@@ -48,10 +48,10 @@ const Services = () => {
 </Link>
 
           {/* HVAC card stays the same for now */}
-          <div className="service__item">
-            <img src={service2} alt="Service 2" className="service__img" />
-            <h4 className="service__title">HVAC</h4>
-          </div>
+          <Link to="/hvac" className="service__item">
+  <img src={service2} alt="HVAC Service" className="service__img" />
+  <h4 className="service__title">HVAC</h4>
+</Link>
         </div>
       </div>
     </section>

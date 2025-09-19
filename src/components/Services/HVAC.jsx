@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const HVAC = () => {
   return (
-    <div>
-      <h1>HVAC Services</h1>
-      <p>This is the HVAC services page.</p>
+    <div style={{ padding: '2rem' }}>
+      <h1>HVAC Services Page</h1>
+      <p>Welcome to the HVAC service section.</p>
     </div>
-  )
-}
+  );
+};
 
-export default HVAC
+export default HVAC;
