@@ -1,5 +1,6 @@
 // Services.jsx
 import React, { useRef } from 'react'
+import { Link } from 'react-router-dom';
 import "./Services.css"
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
@@ -37,14 +38,16 @@ const Services = () => {
           <h1 className='title'>Our <span className='g-text'>Services</span></h1>
           <h3 className='sub__title'>We specialize in strategic construction innovation.</h3>
         </div>
-        <br></br>
+        <br />
 
         <div className='services__container'>
-          <div className="service__item">
-            <img src={blog1} alt="Service 1" className="service__img" />
-            <h4 className="service__title">Electric</h4>
-          </div>
+          {/* 👇 Make Electric card clickable */}
+<Link to="/electric" className="service__item">
+  <img src={blog1} alt="Service 1" className="service__img" />
+  <h4 className="service__title">Electric</h4>
+</Link>
 
+          {/* HVAC card stays the same for now */}
           <div className="service__item">
             <img src={service2} alt="Service 2" className="service__img" />
             <h4 className="service__title">HVAC</h4>
@@ -56,4 +59,3 @@ const Services = () => {
 }
 
 export default Services
-

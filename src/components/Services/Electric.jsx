@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const Electric = () => {
   return (
-    <div>
-      <h1>Electric Services</h1>
-      <p>This is the Electric services page.</p>
+    <div style={{ padding: '2rem' }}>
+      <h1>Electric Services Page</h1>
+      <p>Welcome to the electric service section.</p>
     </div>
-  )
-}
+  );
+};
 
-export default Electric
+export default Electric;
