@@ -193,7 +193,7 @@ const Electric = () => {
     const currentImages = getCurrentGallery();
     const currentIndex = currentImages.indexOf(selectedImage || selectedVideo);
     const nextIndex = (currentIndex + 1) % currentImages.length;
-    
+
     if (currentGallery === 'installationGenerator' || currentGallery === 'residentialNewService') {
       const mediaArray = currentGallery === 'installationGenerator' ? installationGeneratorMedia : residentialNewServiceMedia;
       const nextItem = mediaArray[nextIndex];
@@ -214,7 +214,7 @@ const Electric = () => {
     const currentImages = getCurrentGallery();
     const currentIndex = currentImages.indexOf(selectedImage || selectedVideo);
     const prevIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    
+
     if (currentGallery === 'installationGenerator' || currentGallery === 'residentialNewService') {
       const mediaArray = currentGallery === 'installationGenerator' ? installationGeneratorMedia : residentialNewServiceMedia;
       const prevItem = mediaArray[prevIndex];
@@ -259,7 +259,7 @@ const Electric = () => {
             <p>ELECTRICAL SERVICES</p>
           </div>
         </div>
-        
+
         <div className="electric-header-buttons">
           <button className="back-button-contact-style" onClick={handleBackClick}>← Back</button>
           <button className="contact-us-button" onClick={handleContactClick}>Contact Us</button>
@@ -280,48 +280,48 @@ const Electric = () => {
       {currentGallery === 'industrial' && (
         <div className="projects-section">
           <h2 className="section-title">Industrial Projects</h2>
-          <div className="images-row">{industrialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'industrial')}><img src={image} alt={`Industrial project ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{industrialSecondRow.map((image, index) => (<div key={index + 7} className="project-card" onClick={() => handleImageClick(image, 'industrial')}><img src={image} alt={`Industrial project ${index + 8}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{industrialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'industrial')}><img src={image} alt={`Industrial project ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{industrialSecondRow.map((image, index) => (<div key={index + 7} className="project-card" onClick={() => handleImageClick(image, 'industrial')}><img src={image} alt={`Industrial project ${index + 8}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
       {currentGallery === 'commercial' && (
         <div className="projects-section">
           <h2 className="section-title">Commercial Projects</h2>
-          <div className="images-row">{commercialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'commercial')}><img src={image} alt={`Commercial project ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{commercialSecondRow.map((image, index) => (<div key={index + 6} className="project-card" onClick={() => handleImageClick(image, 'commercial')}><img src={image} alt={`Commercial project ${index + 7}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{commercialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'commercial')}><img src={image} alt={`Commercial project ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{commercialSecondRow.map((image, index) => (<div key={index + 6} className="project-card" onClick={() => handleImageClick(image, 'commercial')}><img src={image} alt={`Commercial project ${index + 7}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
       {currentGallery === 'residential' && (
         <div className="projects-section">
           <h2 className="section-title">Residential Projects</h2>
-          <div className="images-row">{residentialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'residential')}><img src={image} alt={`Residential project ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{residentialSecondRow.map((image, index) => (<div key={index + 6} className="project-card" onClick={() => handleImageClick(image, 'residential')}><img src={image} alt={`Residential project ${index + 7}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{residentialFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'residential')}><img src={image} alt={`Residential project ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{residentialSecondRow.map((image, index) => (<div key={index + 6} className="project-card" onClick={() => handleImageClick(image, 'residential')}><img src={image} alt={`Residential project ${index + 7}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
       {currentGallery === 'garage' && (
         <div className="projects-section">
           <h2 className="section-title">Garage Projects</h2>
-          <div className="images-row">{garageFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'garage')}><img src={image} alt={`Garage project ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{garageSecondRow.map((image, index) => (<div key={index + 3} className="project-card" onClick={() => handleImageClick(image, 'garage')}><img src={image} alt={`Garage project ${index + 4}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{garageFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'garage')}><img src={image} alt={`Garage project ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{garageSecondRow.map((image, index) => (<div key={index + 3} className="project-card" onClick={() => handleImageClick(image, 'garage')}><img src={image} alt={`Garage project ${index + 4}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
       {currentGallery === 'carCharger' && (
         <div className="projects-section">
           <h2 className="section-title">Car Charger Projects</h2>
-          <div className="images-row">{carChargerFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'carCharger')}><img src={image} alt={`Car Charger project ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{carChargerSecondRow.map((image, index) => (<div key={index + 3} className="project-card" onClick={() => handleImageClick(image, 'carCharger')}><img src={image} alt={`Car Charger project ${index + 4}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{carChargerFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'carCharger')}><img src={image} alt={`Car Charger project ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{carChargerSecondRow.map((image, index) => (<div key={index + 3} className="project-card" onClick={() => handleImageClick(image, 'carCharger')}><img src={image} alt={`Car Charger project ${index + 4}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
       {currentGallery === 'beforeAfter' && (
         <div className="projects-section">
           <h2 className="section-title">Before & After Transformations</h2>
-          <div className="images-row">{beforeAfterFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'beforeAfter')}><img src={image} alt={`Before & After transformation ${index + 1}`} className="project-image"/></div>))}</div>
-          <div className="images-row">{beforeAfterSecondRow.map((image, index) => (<div key={index + 8} className="project-card" onClick={() => handleImageClick(image, 'beforeAfter')}><img src={image} alt={`Before & After transformation ${index + 9}`} className="project-image"/></div>))}</div>
+          <div className="images-row">{beforeAfterFirstRow.map((image, index) => (<div key={index} className="project-card" onClick={() => handleImageClick(image, 'beforeAfter')}><img src={image} alt={`Before & After transformation ${index + 1}`} className="project-image" /></div>))}</div>
+          <div className="images-row">{beforeAfterSecondRow.map((image, index) => (<div key={index + 8} className="project-card" onClick={() => handleImageClick(image, 'beforeAfter')}><img src={image} alt={`Before & After transformation ${index + 9}`} className="project-image" /></div>))}</div>
         </div>
       )}
 
@@ -329,7 +329,7 @@ const Electric = () => {
         <div className="projects-section">
           <h2 className="section-title">Installation Generator Projects</h2>
           <div className="images-row">
-            {installationGeneratorRow.map((item, index) => 
+            {installationGeneratorRow.map((item, index) =>
               renderMediaItem(item, index, 'installationGenerator')
             )}
           </div>
@@ -340,7 +340,7 @@ const Electric = () => {
         <div className="projects-section">
           <h2 className="section-title">Residential New Service Projects</h2>
           <div className="images-row">
-            {residentialNewServiceRow.map((item, index) => 
+            {residentialNewServiceRow.map((item, index) =>
               renderMediaItem(item, index, 'residentialNewService')
             )}
           </div>
@@ -352,7 +352,7 @@ const Electric = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             <button className="modal-nav modal-prev" onClick={handlePrevImage}>‹</button>
-            
+
             {selectedImage ? (
               <img src={selectedImage} alt="Enlarged view" className="modal-image" />
             ) : selectedVideo ? (
@@ -360,7 +360,7 @@ const Electric = () => {
                 Your browser does not support the video tag.
               </video>
             ) : null}
-            
+
             <button className="modal-nav modal-next" onClick={handleNextImage}>›</button>
           </div>
         </div>
