@@ -250,6 +250,10 @@
   backdrop-filter: blur(5px);
 }
 
+
+
+
+
 .modal-prev {
   left: -80px;
 }
@@ -352,6 +356,9 @@
     padding: 10px 15px;
     font-size: 0.9rem;
   }
+  
+
+
   
 
   
