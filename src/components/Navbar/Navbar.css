@@ -17,10 +17,10 @@
 }
 
 .logo .icon__container img {
-  width: 150px; /* Increase image size */
+  width: 140px; /* Increase image size */
   height: auto;
   margin-right: 15px; /* move right by 20px */
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .logo .name {
