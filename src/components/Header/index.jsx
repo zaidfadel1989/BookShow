@@ -41,11 +41,11 @@ useGSAP(()=>{
         <div className="row">
           <div className='column'>
             <h1 className='title'>
-              Licensed{" "}<br />
-              <span className='highlight'>Bonded & Insured</span>
+              International{" "}<br />
+              <span className='highlight'>New Arts & Sciences</span>
             </h1>
            <p className='text__muted description'> 
-We’re committed to powering your home safely and efficiently.<br />With years of hands-on experience and a passion for precision,<br /> we provide reliable electrical services designed to meet the unique <br />needs of every household. From simple repairs to full installations,<br /> we bring expert care right to your doorstep.            </p>
+Discover groundbreaking research across diverse <br/>fields of human knowledge in our annual magazine.      </p>
             
             <div className='buttons__container'>
               <Link to="services" smooth={true} className="btn">Our Services</Link>

@@ -12,9 +12,7 @@ import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-import Electric from "./components/Services/Electric";
-import HVAC from "./components/Services/HVAC";
-<Route path="/hvac" element={<HVAC />} />
+
 
 function Home() {
   return (
@@ -34,12 +32,11 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter basename="/YahYa-GH">
+    <BrowserRouter basename="/BookShow">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/electric" element={<Electric />} />
-        <Route path="/hvac" element={<HVAC />} />
+     
       </Routes>
     </BrowserRouter>
   );

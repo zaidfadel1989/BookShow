@@ -13,12 +13,13 @@ import { profile2, profile3,profile4,profile5,
 
 export const navTabs = [
     {name:"Home",id:'header'},
-    {name:"About Us",id:'about'},
-    {name:"Services",id:'services'},
-    {name:"Team",id:'team'},
-    {name:"Project",id:'project'},
+    {name:"About",id:'about'},
+    {name:"Submissions",id:'services'},
+    {name:"Publication",id:'team'},
+    {name:"Boards",id:'project'},
     {name:"Testimonial",id:'testimonial'},
-    
+    {name:"Autobiography",id:'blog'},
+
 ];
 
 export const services = [
@@ -301,11 +302,11 @@ export const footer = [
         routes:[
           {name:"Home",id:'header'},
           {name:"About Us",id:'about'},
-          {name:"Services",id:'services'},
-          {name:"Team",id:'team'},
+          {name:"Submissions",id:'services'},
+          {name:"Publication",id:'team'},
           {name:"Project",id:'project'},
           {name:"Testimonial",id:'testimonial'},
-          {name:"Blog",id:'blog'},
+          {name:"Boards",id:'blog'},
         ]
       },
 ]
