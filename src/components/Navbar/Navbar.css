@@ -17,10 +17,10 @@
 }
 
 .logo .icon__container img {
-  width: 200px; /* Increase image size */
+  width: 150px; /* Increase image size */
   height: auto;
-  margin-left: 50px; /* move right by 20px */
-
+  margin-right: 15px; /* move right by 20px */
+  margin-bottom: 0px;
 }
 
 .logo .name {
@@ -161,9 +161,10 @@
 
 
 .logo .icon__container img {
-  width: 100px; /* smaller default size */
+  width: 130px; /* smaller default size */
   height: auto;
-  margin-left: 20px; /* adjust spacing */
+  margin-right: 20px; /* adjust spacing */
+  margin-top: 10px;
 }
 
 
@@ -184,7 +185,7 @@
 .logo .icon__container img {
   width: 120px; /* smaller default size */
   height: auto;
-  margin-left: 30px; /* adjust spacing */
+  margin-right:30px; /* adjust spacing */
 }
 
 }
