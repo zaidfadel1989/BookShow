@@ -1,12 +1,13 @@
-/* Page Title Section */
+/* Page Title Section - Now at the very top */
 .page-header-section {
   background: linear-gradient(135deg, var(--color-primary) 0%, #2a00c7 100%);
   color: white;
-  padding: 0px 0 0px;
+padding: 10px 0 8px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  width: 100%;
 }
 
 .page-header-section::before {
@@ -25,14 +26,15 @@
 .page-header-content {
   position: relative;
   z-index: 2;
-  max-width: 8000px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .main-title {
-  font-size: 3.2rem;
+  font-size: 2.5rem; /* Reduced from 3.2rem */
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom:5px; /* Reduced from 20px */
   line-height: 1.2;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   background: linear-gradient(45deg, #ffffff, #e6f7ff);
@@ -42,19 +44,19 @@
 }
 
 .title-subtitle {
-  font-size: 1.4rem;
+  font-size: 1.1rem; /* Reduced from 1.4rem */
   font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  line-height: 1.5; /* Reduced from 1.6 */
+  margin-bottom: 15px; /* Reduced from 30px */
   opacity: 0.9;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .title-divider {
   width: 100px;
-  height: 4px;
+  height: px;
   background: linear-gradient(90deg, transparent, #ffffff, transparent);
   margin: 0 auto;
   border-radius: 2px;
@@ -79,101 +81,10 @@
   right: -30px;
 }
 
-/* Update existing journal content spacing */
-.journal-content-section {
-  position: relative;
-  z-index: 2;
-  margin-top: 0;
-}
-
-/* Responsive Design for Title Section */
-@media (max-width: 1024px) {
-  .page-header-section {
-    padding: 60px 0 50px;
-  }
-  
-  .main-title {
-    font-size: 2.8rem;
-  }
-  
-  .title-subtitle {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-header-section {
-    padding: 50px 0 40px;
-    margin-bottom: 30px;
-  }
-  
-  .main-title {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-  }
-  
-  .title-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-  }
-  
-  .title-divider {
-    width: 80px;
-  }
-  
-  .title-divider::before,
-  .title-divider::after {
-    font-size: 1rem;
-  }
-  
-  .title-divider::before {
-    left: -25px;
-  }
-  
-  .title-divider::after {
-    right: -25px;
-  }
-}
-
-@media (max-width: 500px) {
-  .page-header-section {
-    padding: 40px 0 30px;
-    margin-bottom: 20px;
-  }
-  
-  .main-title {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-  }
-  
-  .title-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  .title-divider {
-    width: 60px;
-    height: 3px;
-  }
-  
-  .title-divider::before,
-  .title-divider::after {
-    font-size: 0.9rem;
-  }
-  
-  .title-divider::before {
-    left: -20px;
-  }
-  
-  .title-divider::after {
-    right: -20px;
-  }
-}
-
-/* Your existing CSS below - make sure to keep all your existing styles */
+/* Update main content section */
 #journal-content {
   background: var(--color-white);
-  padding: 80px 0;
+  padding: 30px 0; /* Reduced padding */
   position: relative;
 }
 
@@ -189,11 +100,17 @@
   z-index: 0;
 }
 
+.journal-content-section {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+}
+
 .journal-content-row {
   display: flex;
   gap: 50px;
   align-items: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .journal-column {
@@ -296,72 +213,50 @@
   margin-bottom: 0;
 }
 
-/* Responsive Design */
+/* Responsive Design - Updated with reduced padding */
+/* Responsive Design - Make even shorter on all screens */
 @media (max-width: 1024px) {
-  #journal-content {
-    padding: 60px 0;
+  .page-header-section {
+    padding: 15px 0 12px; /* Reduced from 30px 0 25px */
   }
   
-  .journal-content-row {
-    gap: 30px;
-    margin-bottom: 50px;
+  .main-title {
+    font-size: 2rem; /* Reduced from 2.8rem */
   }
   
-  .welcome-section h2,
-  .about-header h2 {
-    font-size: 1.8rem;
+  .title-subtitle {
+    font-size: 1rem; /* Reduced from 1.3rem */
   }
 }
 
 @media (max-width: 768px) {
-  #journal-content {
-    padding: 40px 0;
+  .page-header-section {
+    padding: 12px 0 10px; /* Reduced from 25px 0 20px */
   }
   
-  .journal-content-row {
-    flex-direction: column;
-    gap: 40px;
-    margin-bottom: 40px;
+  .main-title {
+    font-size: 1.8rem; /* Reduced from 2.2rem */
+    margin-bottom: 12px; /* Reduced from 15px */
   }
   
-  .welcome-section h2,
-  .about-header h2 {
-    font-size: 1.6rem;
-  }
-  
-  .objective-item {
-    padding: 10px 0;
-    padding-left: 25px;
-    font-size: 1rem;
-  }
-  
-  .mission-content {
-    padding: 20px;
+  .title-subtitle {
+    font-size: 0.95rem; /* Reduced from 1.2rem */
+    margin-bottom: 15px; /* Reduced from 25px */
   }
 }
 
 @media (max-width: 500px) {
-  #journal-content {
-    padding: 30px 0;
+  .page-header-section {
+    padding: 10px 0 8px; /* Reduced from 20px 0 15px */
   }
   
-  .welcome-section h2,
-  .about-header h2 {
-    font-size: 1.4rem;
+  .main-title {
+    font-size: 1.5rem; /* Reduced from 1.8rem */
+    margin-bottom: 8px; /* Reduced from 12px */
   }
   
-  .objectives-container h3,
-  .mission-container h3 {
-    font-size: 1.3rem;
-  }
-  
-  .objective-item {
-    font-size: 0.95rem;
-    padding: 8px 0;
-    padding-left: 22px;
-  }
-  
-  .mission-content {
-    padding: 15px;
+  .title-subtitle {
+    font-size: 0.9rem; /* Reduced from 1.1rem */
+    margin-bottom: 12px; /* Reduced from 20px */
   }
 }

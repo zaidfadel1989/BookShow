@@ -25,7 +25,7 @@ const JournalContent = () => {
 
   return (
     <section id="journal-content" ref={container}>
-      {/* New Title Section */}
+      {/* Blue Header Section - Now at the very top */}
       <div className="page-header-section">
         <div className="container">
           <div className="page-header-content">
@@ -36,6 +36,7 @@ const JournalContent = () => {
         </div>
       </div>
 
+      {/* Main Content Section */}
       <div className="container">
         <div className="journal-content-section">
           <div className="journal-content-row">
