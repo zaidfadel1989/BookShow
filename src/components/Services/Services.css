@@ -1,66 +1,96 @@
-/* Services.css */
 #services {
   background: var(--color-white);
   padding: 60px 0;
 }
 
-.services__top {
-  text-align: center;
+#services .container {
   max-width: 100%;
-  margin: 0 auto 30px;
+  padding: 0;
 }
 
-#services .title {
-  font-size: 2.2rem !important;
-  font-weight: 700;
-  margin-bottom: 15px;
-  background: linear-gradient(45deg, var(--color-primary), #3700fc);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-#services .sub__title {
-  font-size: 0.8rem !important;
-  line-height: 1.4 !important;
-  color: var(--color-dark) !important;
-  font-weight: 400;
-  margin-bottom: 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/* === Submission Section - Reduced Height === */
 .submission__image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
+  position: relative;
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 250px; /* Reduced from 400px */
 }
 
 .submission__image {
   width: 100%;
-  max-width: none;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 40px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
 }
 
-.submission__image:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+.submission__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
 
-/* Guidelines Section */
+.submission__content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.submission__text {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+}
+
+#services .title {
+  font-size: 2.5rem; /* Slightly smaller for reduced height */
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.title-divider {
+  width: 100px;
+  height: 2px;
+  background: white;
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+
+#services .sub__title {
+  font-size: 1rem; /* Slightly smaller for reduced height */
+  line-height: 1.5;
+  color: white;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === Guidelines Section === */
 .guidelines-section {
-  margin-top: 50px;
+  margin-top: 60px; /* Reduced spacing */
   padding: 40px;
   background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .guidelines-title {
@@ -68,11 +98,9 @@
   font-weight: 700;
   margin-bottom: 30px;
   text-align: center;
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
   padding-bottom: 10px;
-  display: inline-block;
-  width: 100%;
 }
 
 .guidelines-list {
@@ -103,29 +131,31 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, var(--color-primary), #2a00c7);
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
   border-radius: 50%;
   font-weight: 700;
   font-size: 0.9rem;
-  flex-shrink: 0;
 }
 
 .guideline-text {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--color-dark);
+  color: #333;
 }
 
-/* Publication Criteria Section */
+/* === Publication Criteria Section === */
 .publication-criteria-section {
   margin-top: 40px;
   padding: 40px;
-  background: linear-gradient(135deg, #fff8f8 0%, #ffeaea 100%);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #ff6b6b;
+  border-left: 5px solid #1890ff;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .publication-criteria-title {
@@ -133,11 +163,9 @@
   font-weight: 700;
   margin-bottom: 30px;
   text-align: center;
-  color: #d63031;
-  border-bottom: 2px solid #ff6b6b;
+  color: #1890ff;
+  border-bottom: 2px solid #1890ff;
   padding-bottom: 10px;
-  display: inline-block;
-  width: 100%;
 }
 
 .publication-criteria-list {
@@ -154,8 +182,8 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  border-left: 3px solid #1890ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-left: 3px solid #ff6b6b;
 }
 
 .criteria-item:hover {
@@ -169,41 +197,38 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #ff6b6b, #d63031);
+  background: linear-gradient(135deg, #1890ff, #096dd9);
   color: white;
   border-radius: 50%;
   font-weight: 700;
   font-size: 0.9rem;
-  flex-shrink: 0;
 }
 
 .criteria-text {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--color-dark);
+  color: #333;
 }
 
-/* Remove the old service grid styles */
-.services__container {
-  display: none;
-}
-
-.service__item,
-.service__img,
-.service__title {
-  display: none;
-}
-
-/* Responsive Design */
+/* === Responsive === */
 @media (max-width: 1024px) {
-  .submission__image {
-    height: 250px;
+  .submission__image-container {
+    height: 220px;
   }
   
   .guidelines-section,
   .publication-criteria-section {
     padding: 30px;
+    margin-top: 50px;
+  }
+  
+  #services .title {
+    font-size: 2.2rem;
+  }
+  
+  #services .sub__title {
+    font-size: 0.95rem;
   }
 }
 
@@ -211,23 +236,25 @@
   #services {
     padding: 50px 0;
   }
-  
-  #services .title {
-    font-size: 1.8rem !important;
-  }
-  
-  #services .sub__title {
-    font-size: 0.75rem !important;
-    padding: 0 15px;
-  }
-  
+
   .submission__image-container {
+    height: 200px;
+  }
+
+  #services .title {
+    font-size: 2rem;
+  }
+
+  #services .sub__title {
+    font-size: 0.9rem;
+  }
+
+  .submission__content {
     padding: 0 15px;
-    margin-top: 25px;
   }
   
-  .submission__image {
-    height: 200px;
+  .submission__text {
+    max-width: 95%;
   }
   
   .guidelines-section,
@@ -266,25 +293,20 @@
   #services {
     padding: 40px 0;
   }
-  
-  #services .title {
-    font-size: 1.6rem !important;
-    margin-bottom: 12px;
-  }
-  
-  #services .sub__title {
-    font-size: 0.7rem !important;
-    line-height: 1.4;
-  }
-  
+
   .submission__image-container {
-    margin-top: 20px;
-  }
-  
-  .submission__image {
     height: 180px;
   }
-  
+
+  #services .title {
+    font-size: 1.6rem;
+  }
+
+  #services .sub__title {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
   .guidelines-section,
   .publication-criteria-section {
     margin-top: 30px;

@@ -1,46 +1,49 @@
-// Services.jsx
-import React, { useRef } from 'react'
-import "./Services.css"
-import gsap from 'gsap';
+// src/components/Services/index.jsx
+import React, { useRef } from "react";
+import "./Services.css";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import subImage from "../../assets/Sub.jpeg";
+import subImage from "../../assets/building-10.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
-  const container = useRef(null)
+  const container = useRef(null);
+
   useGSAP(() => {
     const timeline = gsap.timeline({
-      delay: .5,
+      delay: 0.5,
       scrollTrigger: {
         trigger: container.current,
         start: "20% bottom",
         end: "bottom top",
-      }
-    })
+      },
+    });
+    
     timeline
       .from(".title", { y: -50, opacity: 0 })
+      .from(".title-divider", { scale: 0, opacity: 0, duration: 0.6 })
       .from(".sub__title", { y: -50, opacity: 0 })
-      .fromTo(
-        ".submission__image",
-        { y: 100, opacity: 0 },
-        { opacity: 1, y: 0 }
-      )
       .from(".guidelines-section", { y: 50, opacity: 0, duration: 0.6 }, "-=0.4")
-      .from(".publication-criteria-section", { y: 50, opacity: 0, duration: 0.6 }, "-=0.4")
-  }, { scope: container })
+      .from(".publication-criteria-section", { y: 50, opacity: 0, duration: 0.6 }, "-=0.4");
+  }, { scope: container });
 
   return (
-    <section id='services' ref={container}>
-      <div className='container'>
-        <div className='services__top'>
-          <h1 className='title'> <span className='g-text'>Submissions</span></h1>
-          <p className='sub__title'>All articles are subjected to a double blind peer-review process. Manuscripts are invited from academicians, researchers' practitioners for publication consideration in all areas. We will also consider work that has been presented at conferences (significant amount of changes should be made before submission to the journal and proper citation of the conference paper is required).</p>
-        </div>
-        
+    <section id="services" ref={container}>
+      <div className="container">
+        {/* Submission Image with Text Overlay */}
         <div className='submission__image-container'>
           <img src={subImage} alt="Submissions Process" className="submission__image" />
+          <div className='submission__content'>
+            <div className='submission__text'>
+              <h1 className='title'>Submissions</h1>
+              <div className='title-divider'></div>
+              <p className='sub__title'>
+                All articles are subjected to a double blind peer-review process. Manuscripts are invited from academicians, researchers, and practitioners for publication consideration in all areas. We will also consider work that has been presented at conferences (significant changes must be made before submission to the journal and proper citation of the conference paper is required).
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Guidelines Section */}
@@ -106,7 +109,7 @@ const Services = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

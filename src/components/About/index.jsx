@@ -78,10 +78,10 @@ const About = () => {
 
           <div className='group'>
             {[
-              { label: "Publication", title: "Peer-Reviewed" },
-              { label: "Access", title: "Open Access" },
-              { label: "Research", title: "Multidisciplinary" },
-              { label: "Recognition", title: "Worldwide" },
+              { label: "Explore", title: "Books" },
+              { label: "Read", title: "Online" },
+              { label: "Research", title: "Journals" },
+              { label: "Discover", title: "Authors" },
             ].map((item, index) => (
               <div className='row' key={index}>
                 <div className='icon__container'>

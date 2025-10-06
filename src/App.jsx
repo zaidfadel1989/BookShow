@@ -16,8 +16,8 @@ function Home() {
   return (
     <>
       <Header />
-      <JournalContent />{/* JournalContent comes after */}
-      <About />         {/* Move About here */}
+      <JournalContent />
+      <About />         
       <Services />
       <Teams />
       <Project />
