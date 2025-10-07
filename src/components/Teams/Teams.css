@@ -1,89 +1,490 @@
-#team .teams__container{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-content: space-between;
-    gap: 20px;
-    overflow: hidden;
+#team {
+  background: var(--color-white);
+  padding: 60px 0;
+}
+
+#team .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+
+
+
+
+
+/* In Teams.css - Update the button styles for the Link */
+.read-research-btn {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.read-research-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+
+
+/* === Publication Section - Matching Services Style === */
+.submission__image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 250px;
+}
+
+.submission__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.submission__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.submission__content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.submission__text {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+}
+
+#team .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.title-divider {
+  width: 100px;
+  height: 2px;
+  background: white;
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+
+#team .sub__title {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === Research Projects Section === */
+.research-projects-section {
+  margin-top: 60px;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Section Header Styles === */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* === Two Journal Cards Side by Side === */
+.journals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.journal-item {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #27ae60; /* Green border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journal-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.journal-header {
+  margin-bottom: 20px;
+}
+
+.journal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.journal-details {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #e9ecef;
+}
+
+.journal-frequency,
+.journal-volume {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.journal-editor {
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.journal-editor p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.4;
+}
+
+.journal-editor p:first-child {
+  font-weight: 600;
+  color: #495057;
+}
+
+/* === Featured Research Section - Blue Theme === */
+.featured-research-section {
+  margin-top: 40px;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* Blue background */
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #2196f3; /* Blue border */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-research-section .section-divider {
+  background: linear-gradient(135deg, #2196f3, #1976d2); /* Blue gradient */
+  width: 100px;
+  height: 2px;
+  margin: 10px auto 0;
+}
+
+.featured-research-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.research-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1565c0;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.research-description {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  text-align: left;
+  border-top: 2px solid #e3f2fd;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.research-description p {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #37474f;
+  text-align: center;
+}
+
+.research-description p:last-child {
+  margin-bottom: 0;
+}
+
+.research-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.read-research-btn {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.read-research-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .submission__image-container {
+    height: 220px;
+  }
+  
+  .research-projects-section,
+  .featured-research-section {
+    padding: 40px 30px;
     margin-top: 50px;
+  }
+  
+  #team .title {
+    font-size: 2.2rem;
+  }
+  
+  #team .sub__title {
+    font-size: 0.95rem;
+  }
+
+  .journals-grid {
+    gap: 25px;
+  }
 }
 
-
-#team .team__card{
-    background: var(--color-ui-secondary);
-    border-radius: var(--radius-3);
-    display: flex;
-    align-items: stretch;
-    gap: 20px;
-    overflow: hidden;
-    padding: 20px;
+@media (max-width: 900px) {
+  .journals-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 600px;
+  }
 }
 
+@media (max-width: 768px) {
+  #team {
+    padding: 50px 0;
+  }
 
+  .submission__image-container {
+    height: 200px;
+  }
 
+  #team .title {
+    font-size: 2rem;
+  }
 
-#team .team__card .profile__container{
-    width: 200px;
-    overflow: hidden;
-    transition: var(--transition);
-    border-radius: var(--radius-3);
+  #team .sub__title {
+    font-size: 0.9rem;
+  }
+
+  .submission__content {
+    padding: 0 15px;
+  }
+  
+  .submission__text {
+    max-width: 95%;
+  }
+  
+  .research-projects-section,
+  .featured-research-section {
+    margin-top: 40px;
+    padding: 30px 25px;
+    border-radius: 15px;
+  }
+  
+  .section-title {
+    font-size: 1.7rem;
+  }
+  
+  .journal-item {
+    padding: 25px 20px;
+  }
+  
+  .journal-title {
+    font-size: 1.1rem;
+  }
+  
+  .research-title {
+    font-size: 1.5rem;
+  }
+  
+  .research-description {
+    padding: 25px;
+  }
 }
 
+@media (max-width: 600px) {
+  #team {
+    padding: 40px 0;
+  }
 
+  .submission__image-container {
+    height: 180px;
+  }
 
-#team .team__card:hover img{
-    transform: scale(1.2);
-}
+  #team .title {
+    font-size: 1.8rem;
+  }
 
+  #team .sub__title {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
 
-
-#team .team__card .details{
-    flex: 1;
-}
-
-
-#team .social__container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+  .research-projects-section,
+  .featured-research-section {
     margin-top: 30px;
+    padding: 25px 20px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+  
+  .journal-item {
+    padding: 20px 15px;
+  }
+  
+  .journal-title {
+    font-size: 1rem;
+  }
+  
+  .journal-frequency,
+  .journal-volume,
+  .journal-editor p {
+    font-size: 0.85rem;
+  }
+  
+  .research-title {
+    font-size: 1.3rem;
+  }
+  
+  .read-research-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .research-description {
+    padding: 20px;
+  }
+  
+  .research-description p {
+    font-size: 0.95rem;
+  }
 }
 
-
-
-#team .social__container .icon__container{
-    font-size: 20px;
-    background: var(--gradient-1);
-    color: var(--color-white);
-}
-
-
-
-
-
-
-
-
-
-@media (max-width:600px){
-    #team .teams__container{
-        grid-template-columns: 100%;
-        gap: 10px;
-    }
-
-
-    #team .team__card .profile__container{
-        width: 100px;
-        min-width: 100px;
-    }
-
-    #team .social__container{
-        gap: 5px;
-    }
-
-    #team .social__container .icon__container{
-        width: 1.8rem;
-        height: 1.8rem;
-        font-size: 16px;
-    }
+@media (max-width: 480px) {
+  .journals-grid {
+    gap: 20px;
+  }
+  
+  .journal-item {
+    padding: 18px 12px;
+  }
+  
+  .research-description {
+    padding: 18px;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .research-title {
+    font-size: 1.2rem;
+  }
+  
+  .read-research-btn {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
 }
