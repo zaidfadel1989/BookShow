@@ -1,11 +1,12 @@
-// In Teams.jsx
+// Teams/Teams.jsx (updated section)
 import React, { useRef } from "react";
-import { Link } from "react-router-dom"; // Add this import
+import { Link } from "react-router-dom";
 import "./Teams.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import publicationImage from "../../assets/Sub.jpeg";
+import MagnetButton from "./MagnetButton"; // Import the new component
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,7 +90,7 @@ const Teams = () => {
           </div>
         </div>
 
-        {/* Featured Research Section - Updated with Link */}
+        {/* Featured Research Section */}
         <div className="featured-research-section">
           <div className="section-header">
             <h2 className="section-title">Featured Research</h2>
@@ -113,9 +114,14 @@ const Teams = () => {
               </p>
             </div>
             <div className="research-actions">
-              <Link to="/publication2" className="read-research-btn">
+              <MagnetButton 
+                padding={100}
+                magnetStrength={15}
+                activeTransition="transform 0.1s ease-out"
+                inactiveTransition="transform 0.6s ease-in-out"
+              >
                 Read the research
-              </Link>
+              </MagnetButton>
             </div>
           </div>
         </div>

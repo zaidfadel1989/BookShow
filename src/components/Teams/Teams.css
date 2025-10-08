@@ -8,42 +8,6 @@
   padding: 0;
 }
 
-
-
-
-
-
-/* In Teams.css - Update the button styles for the Link */
-.read-research-btn {
-  background: linear-gradient(135deg, #2196f3, #1976d2);
-  color: white;
-  border: none;
-  padding: 14px 35px;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.read-research-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-  background: linear-gradient(135deg, #1976d2, #1565c0);
-  color: white;
-  text-decoration: none;
-}
-
-
-
-
-
-
 /* === Publication Section - Matching Services Style === */
 .submission__image-container {
   position: relative;
@@ -174,13 +138,14 @@
   border-radius: 12px;
   padding: 30px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #27ae60; /* Green border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .journal-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .journal-header {
@@ -228,21 +193,18 @@
   color: #495057;
 }
 
-/* === Featured Research Section - Blue Theme === */
+/* === Featured Research Section - Updated with Electric Border === */
 .featured-research-section {
-  margin-top: 40px;
   padding: 50px 40px;
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* Blue background */
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #2196f3; /* Blue border */
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  border-left: 5px solid #2196f3;
+  position: relative;
+  z-index: 2;
 }
 
 .featured-research-section .section-divider {
-  background: linear-gradient(135deg, #2196f3, #1976d2); /* Blue gradient */
+  background: linear-gradient(135deg, #2196f3, #1976d2);
   width: 100px;
   height: 2px;
   margin: 10px auto 0;
@@ -292,7 +254,17 @@
   margin-top: 20px;
 }
 
-.read-research-btn {
+/* === Magnet Button Styles === */
+.magnet-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.magnet-button-inner {
+  display: inline-block;
+}
+
+.magnet-button {
   background: linear-gradient(135deg, #2196f3, #1976d2);
   color: white;
   border: none;
@@ -304,12 +276,44 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
   letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.read-research-btn:hover {
+.magnet-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
   background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white;
+  text-decoration: none;
+}
+
+.magnet-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.magnet-button:hover::before {
+  left: 100%;
+}
+
+/* Animation for button click */
+.magnet-button:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* === Responsive Design === */
@@ -396,6 +400,11 @@
   .research-description {
     padding: 25px;
   }
+  
+  .magnet-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -448,7 +457,7 @@
     font-size: 1.3rem;
   }
   
-  .read-research-btn {
+  .magnet-button {
     padding: 12px 30px;
     font-size: 1rem;
   }
@@ -483,7 +492,7 @@
     font-size: 1.2rem;
   }
   
-  .read-research-btn {
+  .magnet-button {
     padding: 10px 25px;
     font-size: 0.95rem;
   }
