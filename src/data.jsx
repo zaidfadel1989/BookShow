@@ -18,7 +18,6 @@ export const navTabs = [
     {name:"Publication",id:'team'},
     {name:"Boards",id:'project'},
     {name:"Testimonial",id:'testimonial'},
-    {name:"Autobiography",id:'blog'},
 
 ];
 
