@@ -22,7 +22,6 @@ function Home() {
       <Teams />
       <Project />
       <Testimonial />
-      <FAQ />
       <Contact />
       <Footer />
     </>

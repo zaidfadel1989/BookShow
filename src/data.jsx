@@ -117,43 +117,41 @@ export const teams = [
 
 export const projects = [
   {
-    title:"Residential Development Project",
+    title:"Julius Caesar",
     image:building_5,
-    description:`A comprehensive residential development involving the construction of a new 
-        housing community from initial site clearing and preparation to final home construction and landscaping`,
-  },
+    description: "by William Shakespeare is a historical tragedy written during the late 16th century. The play centers around the themes of power, ambition, betrayal, and the moral implications of political action, focusing on the life and assassination of Roman leader Julius Caesar and its aftermath. At the start of the play, we are introduced to the political climate of Rome, where commoners celebrate Caesar's triumph, despite the attempts of tribunes Flavius"
+    },
   {
-    title:"Commercial Office Building",
+    title:"A history of ancient Greece in its Mediterranean context",
     image:building_6,
     description:`The construction of a multi-story office building including all 
        architectural and structural design, coordination of specialized trades for 
        HVAC and electrical systems, and complete project oversight.`,
   },
   {
-    title:"Retail Space Renovation",
+    title:"From tipi to skyscraper",
     image:building_7,
     description:`Transforming an outdated retail store into a modern commercial space, 
     involving interior demolition, new layout design, installation of new fixtures, 
     and updating utilities.`,
   },
   {
-    title:"Industrial Warehouse Construction",
+    title:"The Tao of physics",
     image:building_8,
     description:`Building a large-scale industrial warehouse, including land clearing,
      foundation work, steel structure erection, and complete construction management 
      from start to finish.`,
   },
   {
-    title:"Historic Building Restoration",
+    title:"Economics",
     image:building_9,
     description:`Restoring and renovating a historic building to preserve its architectural integrity while updating it to meet modern standards, involving meticulous 
     craftsmanship and specialized restoration techniques.`,
   },
   {
-    title:"Educational Facility Expansion",
+    title:"The virtual community",
     image:building_10,
-    description:`Expanding an existing school with new classrooms and facilities, encompassing all phases from initial design and site preparation to construction and 
-    final project management to ensure timely completion.`,
+    description:`Howard Rheingold has been called the First Citizen of the Internet. In this book he tours the "virtual community" of online networking. He describes a community that is as real and as much a mixed bag as any physical community - one where people talk, argue, seek information, organize politically, fall in love, and dupe others.`,
   },
 ];
 
