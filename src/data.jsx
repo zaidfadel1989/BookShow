@@ -6,11 +6,13 @@ import { SiBlueprint,SiHomeassistantcommunitystore  } from "react-icons/si";
 import { AiOutlineFileProtect } from "react-icons/ai";
 import { IoConstructSharp } from "react-icons/io5";
 import { GrUserManager } from "react-icons/gr";
-import { profile2, profile3,profile4,profile5,
-         member1, member2, member3, member4,building_5,building_6,
-         building_7, building_8,building_9,building_10,
-        blog_1,blog_2,blog_3} from "./assets";
-
+import { 
+  profile2, profile3, profile4, profile5,
+  member1, member2, member3, member4,
+  blog_1, blog_2, blog_3,
+  // Import Project_imgs images from assets - CORRECT THESE NAMES
+  a1, a2, a3, a6, a7, a8, a9, a11, a12, a15
+} from "./assets";
 export const navTabs = [
     {name:"Home",id:'header'},
     {name:"About",id:'about'},
@@ -115,45 +117,63 @@ export const teams = [
 ]
 
 export const projects = [
+ 
+  // Add Project_imgs images here
   {
-    title:"Julius Caesar",
-    image:building_5,
-    description: "by William Shakespeare is a historical tragedy written during the late 16th century. The play centers around the themes of power, ambition, betrayal, and the moral implications of political action, focusing on the life and assassination of Roman leader Julius Caesar and its aftermath. At the start of the play, we are introduced to the political climate of Rome, where commoners celebrate Caesar's triumph, despite the attempts of tribunes Flavius"
-    },
-  {
-    title:"A history of ancient Greece in its Mediterranean context",
-    image:building_6,
-    description:`The construction of a multi-story office building including all 
-       architectural and structural design, coordination of specialized trades for 
-       HVAC and electrical systems, and complete project oversight.`,
+    title:"Project A1",
+    image:a1,
+    description:`Modern construction project showcasing innovative design and sustainable building practices.`,
   },
   {
-    title:"From tipi to skyscraper",
-    image:building_7,
-    description:`Transforming an outdated retail store into a modern commercial space, 
-    involving interior demolition, new layout design, installation of new fixtures, 
-    and updating utilities.`,
+    title:"Project A2",
+    image:a2,
+    description:`Residential development featuring contemporary architecture and energy-efficient solutions.`,
   },
   {
-    title:"The Tao of physics",
-    image:building_8,
-    description:`Building a large-scale industrial warehouse, including land clearing,
-     foundation work, steel structure erection, and complete construction management 
-     from start to finish.`,
+    title:"Project A3",
+    image:a3,
+    description:`Commercial building construction with focus on structural integrity and aesthetic appeal.`,
+  },
+ 
+  {
+    title:"Project A6",
+    image:a6,
+    description:`Industrial facility construction emphasizing safety standards and operational efficiency.`,
   },
   {
-    title:"Economics",
-    image:building_9,
-    description:`Restoring and renovating a historic building to preserve its architectural integrity while updating it to meet modern standards, involving meticulous 
-    craftsmanship and specialized restoration techniques.`,
+    title:"Project A7",
+    image:a7,
+    description:`Mixed-use development combining residential, commercial, and recreational spaces.`,
   },
   {
-    title:"The virtual community",
-    image:building_10,
-    description:`Howard Rheingold has been called the First Citizen of the Internet. In this book he tours the "virtual community" of online networking. He describes a community that is as real and as much a mixed bag as any physical community - one where people talk, argue, seek information, organize politically, fall in love, and dupe others.`,
+    title:"Project A8",
+    image:a8,
+    description:`Educational institution construction with modern learning environments and sustainable features.`,
+  },
+  {
+    title:"Project A9",
+    image:a9,
+    description:`Healthcare facility project designed for optimal patient care and medical workflow efficiency.`,
+  },
+ 
+  {
+    title:"Project A11",
+    image:a11,
+    description:`Retail space development with strategic layout planning and customer experience optimization.`,
+  },
+  {
+    title:"Project A12",
+    image:a12,
+    description:`Public infrastructure project improving community connectivity and accessibility.`,
+  },
+  
+ 
+  {
+    title:"Project A15",
+    image:a15,
+    description:`Landmark architectural project pushing the boundaries of design and construction technology.`,
   },
 ];
-
 
 export const testimonial = [
   {
@@ -186,7 +206,6 @@ export const testimonial = [
   }
 
 ];
-
 
 export const blogs = [
   {
@@ -247,7 +266,6 @@ export const blogs = [
   },
 ];
 
-
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 
 export const contacts = [
@@ -272,18 +290,7 @@ export const contacts = [
     link: "https://wa.me/17735435969",
     button: "Chat on WhatsApp"
   },
-  // {
-  //   name: "Address",
-  //   value: "111 Westover Ln, Schaumburg IL",
-  //   icon: <FaMapMarkerAlt />,
-  //   link: "https://www.google.com/maps?q=111+Westover+Ln,+Schaumburg,+IL",
-  //   button: "Find Us"
-  // },
-  
 ];
-
-
-
 
 export const footer = [
     {
@@ -307,5 +314,3 @@ export const footer = [
         ]
       },
 ]
-
-
