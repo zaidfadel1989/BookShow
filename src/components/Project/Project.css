@@ -1,93 +1,193 @@
-#project .project__top{
-    padding:0 20px;
+/* Project.css */
+#project {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
 }
 
-#project .slick-track{
-    display: flex !important;
+#project .project__top {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
 }
 
-#project .projects__container{
-margin-top: 50px;
-overflow: hidden;
+#project .title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-
-
-#project .slick-slide{
-    height: inherit;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-
+#project .g-text {
+  color: #4a90e2;
 }
 
-
-
-#project .slick-slide > div{
-    flex: 1;
-    background: var(--gradient-1);
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    flex-direction: column;
+#project .sub__title {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-
-
-
-#project .slick-slide:hover img{
-    transform: scale(1.2);
+/* Slider Container */
+#project .projects__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-
-#project .slick-slide .image__container{
-    overflow: hidden;
-    flex: 1;
+#project .slick-track {
+  display: flex !important;
+  align-items: stretch;
 }
 
-
-#project .slick-slide .box{
-    padding: 0 20px;
-    color: var(--color-white);
+/* Project Card */
+#project .project__card {
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 10px;
 }
 
+#project .slick-slide {
+  height: auto !important;
+  padding: 10px;
+}
 
-
-#project .slick-slide .details{
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: 100%;
-    background: rgba(255, 255, 255, 0 , 5);
-    -webkit-backdrop-filter:blur(100px);
-    backdrop-filter: blur(100px);
-    transition: var(--transition);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
+/* Image Container - TALLER VERSION */
+#project .image__container {
+  overflow: hidden;
+  height: 600px; /* TALLER: Increased to 380px */
+  width: 100%;
+  border-radius: 12px 12px 0 0;
 }
 
 
 
-#project .slick-slide:hover .details{
-    left: 0;
+#project .project__card:hover .image__container img {
+  transform: scale(1.05);
 }
 
-
-#project .slick-slide .details .btn{
-    margin-top: 20px;
+/* Title Box - Adjust for taller images */
+#project .box {
+  padding: 25px 20px; /* Increased padding for balance */
+  background: white;
+  border-bottom: 1px solid #eee;
 }
 
+#project .box .name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
 
-#project .slick-slide .name{
-    font-size: 25px;
-    font-weight: 700;
-    margin: 20px 0;
+/* Details Overlay - Adjust for taller container */
+#project .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.97); /* Slightly more opaque */
+  padding: 40px 30px; /* More padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+#project .project__card:hover .details {
+  opacity: 1;
+  visibility: visible;
+}
+
+#project .details .name {
+  font-size: 1.5rem; /* Slightly larger */
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#project .details .description {
+  font-size: 1rem; /* Slightly larger */
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  max-height: 140px; /* Increased for taller cards */
+}
+
+/* Responsive Design with Taller Images */
+@media (max-width: 992px) {
+  #project .image__container {
+  overflow: hidden;
+  height: 600px; /* TALLER: Increased to 380px */
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+}
+
+@media (max-width: 768px) {
+  #project {
+    padding: 40px 15px;
+  }
+  
+  #project .title {
+    font-size: 2rem;
+  }
+  
+  #project .image__container {
+  overflow: hidden;
+  height: 400px; /* TALLER: Increased to 380px */
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+  
+  #project .box {
+    padding: 20px 15px;
+  }
+  
+  #project .box .name {
+    font-size: 1.1rem;
+  }
+  
+  #project .details {
+    padding: 30px 20px;
+  }
+  
+  #project .details .description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+ #project .image__container {
+  overflow: hidden;
+  height: 600px; /* TALLER: Increased to 380px */
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+  
+  #project .title {
+    font-size: 1.8rem;
+  }
+  
+  #project .sub__title {
+    font-size: 1rem;
+  }
 }

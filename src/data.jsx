@@ -177,34 +177,25 @@ export const projects = [
 
 export const testimonial = [
   {
-    image:profile2,
-    name:'Samuel Eze',
-    review:` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea veniam, quis nostrud exercitation ullamco laborisveniam, quis nostrud exercitation ullamco laboris`
+    image: profile2,
+    name: 'Samuel Eze',
+    review: `The construction team exceeded all our expectations. Their attention to detail and commitment to quality was remarkable. Our new office building was completed on time and under budget. I would highly recommend their services to anyone looking for professional construction management.`
   },
   {
-    image:profile3,
-    name:'Emmanuel Joseph',
-    review:` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`
+    image: profile3,
+    name: 'Emmanuel Joseph',
+    review: `Working with this construction company has been an absolute pleasure. Their project management skills are exceptional, and they kept us informed every step of the way. The quality of work is outstanding, and they truly care about their clients' satisfaction.`
   },
   {
-    image:profile4,
-    name:'Gloria Chiwendu',
-    review:` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea veniam, quis nostrud exercitation ullamco laborisveniam, quis nostrud exercitation ullamco laborisveniam, quis nostrud exercitation ullamco laboris`
+    image: profile4,
+    name: 'Gloria Chiwendu',
+    review: `As a project manager myself, I was impressed by the level of professionalism and expertise demonstrated by this construction team. They handled complex challenges with ease and delivered a beautiful commercial space that perfectly matched our vision. Their communication was excellent throughout the entire process.`
   },
   {
-    image:profile5,
-    name:'Precious Stone',
-    review:` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea`
+    image: profile5,
+    name: 'Precious Stone',
+    review: `The renovation work on our historic building was handled with care and precision. The team preserved the original architectural details while incorporating modern amenities. Their craftsmanship is truly exceptional, and we couldn't be happier with the results.`
   }
-
 ];
 
 export const blogs = [

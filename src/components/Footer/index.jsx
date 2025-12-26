@@ -66,28 +66,7 @@ Discover groundbreaking research across diverse fields of human knowledge in our
               </div>
             </div>
 
-            {/* Newsletter */}
-            <div className="footer-column newsletter-column">
-              <h4 className="column-title">Stay Updated</h4>
-              <p className="newsletter-description">
-                Get maintenance tips, seasonal offers, and energy-saving advice
-              </p>
-              <form className="newsletter-form">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email address"
-                  className="newsletter-input"
-                  required
-                />
-                <button type="submit" className="newsletter-btn">
-                  Subscribe
-                </button>
-              </form>
-              <p className="privacy-text">
-                By subscribing, you agree to receive occasional updates. Unsubscribe anytime.
-                <a href="/privacy-policy" className="privacy-link"> Privacy Policy</a>
-              </p>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -101,9 +80,8 @@ Discover groundbreaking research across diverse fields of human knowledge in our
 International
 New Arts and Sciences
 Research Journal</p>
-            <p className="license-info">IL License #HVAC-123456 | Based in Chicago, IL, USA</p>
             <p className="service-area">
-              <strong>Service Areas:</strong> Chicago and surrounding suburbs within 30-mile radius
+              <strong>Service Areas:</strong> Chicago and surrounding suburbs 
             </p>
           </div>
 
