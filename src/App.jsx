@@ -10,17 +10,16 @@ import Testimonial from "./components/Testmonial";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Publication2 from "./components/Teams/Publication2"; // Add this import
 
 function Home() {
   return (
     <>
       <Header />
       <Project />
-      <About />   
+      <About />  
+      <Teams /> 
       <JournalContent />
       <Services />
-      <Teams />
       <Testimonial />
       <Contact />
       <Footer />
@@ -34,7 +33,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/publication2" element={<Publication2 />} /> {/* Add this route */}
       </Routes>
     </BrowserRouter>
   );

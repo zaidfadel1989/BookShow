@@ -15,10 +15,10 @@ import {
 } from "./assets";
 export const navTabs = [
     {name:"Home",id:'header'},
+    {name:"Project",id:'project'},
     {name:"About",id:'about'},
+    {name:"team",id:'team'},
     {name:"Submissions",id:'services'},
-    {name:"Publication",id:'team'},
-    {name:"Boards",id:'project'},
     {name:"Testimonial",id:'testimonial'},
 
 ];

@@ -1,130 +1,68 @@
-// Teams/Teams.jsx (updated section)
-import React, { useRef } from "react";
-import { Link } from "react-router-dom";
-import "./Teams.css";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import publicationImage from "../../assets/Sub.jpeg";
-import MagnetButton from "./MagnetButton"; // Import the new component
-
-gsap.registerPlugin(ScrollTrigger);
+import "./style.css";
 
 const Teams = () => {
   const container = useRef(null);
 
-  useGSAP(() => {
-    const timeline = gsap.timeline({
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: container.current,
-        start: "20% bottom",
-        end: "bottom top",
-      },
+  useEffect(() => {
+    const cards = container.current.querySelectorAll(".team-card");
+    const header = container.current.querySelector(".team-header");
+
+    // Animate header
+    gsap.from(header, {
+      opacity: 0,
+      y: -30,
+      duration: 0.8,
+      ease: "power2.out",
     });
-    
-    timeline
-      .from(".title", { y: -50, opacity: 0 })
-      .from(".title-divider", { scale: 0, opacity: 0, duration: 0.6 })
-      .from(".sub__title", { y: -50, opacity: 0 })
-      .from(".journal-item", { y: 50, opacity: 0, stagger: 0.2, duration: 0.6 }, "-=0.4")
-      .from(".featured-research-section", { y: 50, opacity: 0, duration: 0.8 }, "-=0.4");
-  }, { scope: container });
+
+    // Animate cards with proper stagger and initial opacity
+    gsap.set(cards, { opacity: 0, y: 40 }); // Ensure initial state
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+  }, []);
 
   return (
-    <section id="team" ref={container}>
-      <div className="container">
-        {/* Publication Image with Text Overlay */}
-        <div className='submission__image-container'>
-          <img src={publicationImage} alt="Publication" className="submission__image" />
-          <div className='submission__content'>
-            <div className='submission__text'>
-              <h1 className='title'>Publication</h1>
-              <div className='title-divider'></div>
-              <p className='sub__title'>
-                Explore groundbreaking studies across diverse fields of human knowledge in our annual scientific magazine.
-              </p>
-            </div>
-          </div>
+    <section className="team-page" ref={container} id="team">
+  <div className="team-header">
+    <h1>Editorial & Management Team</h1>
+    <p>International New Arts and Sciences Research Journal (NASRJ)</p>
+  </div>
+
+      <div className="team-container">
+        <div className="team-card">
+          <h3>Prof. Mahmoud F. Al-Ali</h3>
+          <span className="role">Editor-in-Chief</span>
+          <p>Professor with extensive experience in academic publishing and international research leadership. Oversees editorial policy and peer-review standards.</p>
+          <p className="contact">Chicago, IL, USA<br />albahith45@yahoo.com</p>
         </div>
 
-        {/* Research Projects Section */}
-        <div className="research-projects-section">
-          <div className="section-header">
-            <h2 className="section-title">Research Projects</h2>
-            <p className="section-description">
-              Explore various scientific research projects across multiple disciplines.
-            </p>
-            <div className="section-divider"></div>
-          </div>
-          
-          {/* Two Journal Cards Side by Side */}
-          <div className="journals-grid">
-            <div className="journal-item">
-              <div className="journal-header">
-                <h3 className="journal-title">INTERNATIONAL NEW ARTS AND SCIENCES Research Journal</h3>
-              </div>
-              <div className="journal-details">
-                <p className="journal-frequency">Frequency : Owner Year</p>
-                <p className="journal-volume">Vol : Eight : No. 8,2020</p>
-              </div>
-              <div className="journal-editor">
-                <p>Editor — in — Chief Professor Mahmoud F. Al-Ali (PhD)</p>
-                <p>Chicago/ ILLINOIS — USA</p>
-              </div>
-            </div>
-
-            <div className="journal-item">
-              <div className="journal-header">
-                <h3 className="journal-title">INTERNATIONAL NEW ARTS AND SCIENCES Research Journal</h3>
-              </div>
-              <div className="journal-details">
-                <p className="journal-frequency">Frequency : Owner Year</p>
-                <p className="journal-volume">Vol : Eight : No. 8,2020</p>
-              </div>
-              <div className="journal-editor">
-                <p>Editor — in — Chief Professor Mahmoud F. Al-Ali (PhD)</p>
-                <p>Chicago/ ILLINOIS — USA</p>
-              </div>
-            </div>
-          </div>
+        <div className="team-card">
+          <h3>Dr. Ahmed Hassan</h3>
+          <span className="role">Associate Editor</span>
+          <p>Specialist in interdisciplinary research and peer-review coordination ensuring publication quality.</p>
+          <p className="contact">USA<br />editor@nasrjournal.org</p>
         </div>
 
-        {/* Featured Research Section */}
-        <div className="featured-research-section">
-          <div className="section-header">
-            <h2 className="section-title">Featured Research</h2>
-            <div className="section-divider"></div>
-          </div>
-          
-          <div className="featured-research-content">
-            <h3 className="research-title">
-              Dramaturgy and Brecht's Political Theory in Die Mutter: The Mother
-            </h3>
-            <div className="research-description">
-              <p>
-                This groundbreaking research explores the intersection of dramaturgy and political theory 
-                in Bertolt Brecht's seminal work "Die Mutter" (The Mother). The study delves into Brecht's 
-                revolutionary approach to theater as a platform for social and political discourse.
-              </p>
-              <p>
-                Through meticulous analysis of Brecht's epic theater techniques and their political 
-                implications, this publication offers new insights into how theatrical performance 
-                can serve as a catalyst for social change and political awareness.
-              </p>
-            </div>
-            <div className="research-actions">
-              <MagnetButton 
-                padding={100}
-                magnetStrength={15}
-                activeTransition="transform 0.1s ease-out"
-                inactiveTransition="transform 0.6s ease-in-out"
-              >
-                Read the research
-              </MagnetButton>
-            </div>
-          </div>
+        <div className="team-card">
+          <h3>Dr. Sarah M. Collins</h3>
+          <span className="role">Managing Editor</span>
+          <p>Handles manuscript workflow, author communication, and publication scheduling.</p>
+          <p className="contact">United Kingdom<br />managing@nasrjournal.org</p>
         </div>
+
+        {/* <div className="team-card">
+          <h3>Dr. Ali R. Mahmoud</h3>
+          <span className="role">Technical & Review Coordinator</span>
+          <p>Oversees technical formatting, peer-review systems, and publication operations.</p>
+          <p className="contact">Middle East<br />review@nasrjournal.org</p>
+        </div> */}
       </div>
     </section>
   );
