@@ -1,141 +1,121 @@
-/* Page Title Section - Now at the very top */
-.page-header-section {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #2a00c7 100%);
-  color: white;
-padding: 10px 0 8px;
-  text-align: center;
+/* ===============================
+   Global Journal Layout
+================================ */
+
+#journal-content {
+  background: #f8f9fc;
+  padding: 60px 0;
   position: relative;
-  overflow: hidden;
-  margin-bottom: 0;
-  width: 100%;
 }
 
-.page-header-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
-  pointer-events: none;
+
+/* ===============================
+   Page Header Title (No Vertical Space)
+================================ */
+
+.page-header-section {
+  background: linear-gradient(135deg, #2a3cff, #1b1f8a);
+  padding: 0;              /* ✅ removes space above & below */
+  margin: 0;               /* ✅ no extra margin */
+  text-align: center;
 }
 
 .page-header-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
+  padding: 12px 0;         /* small controlled spacing */
+}
+
+.page-title {
+  margin: 0;               /* ✅ removes top & bottom margin */
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.page-title-divider {
+  width: 120px;
+  height: 0px;
+  margin: 0px auto 0;      /* minimal spacing only below */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffffff,
+    transparent
+  );
+  border-radius: 4px;
+}
+
+
+
+
+
+.container {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.main-title {
-  font-size: 2.5rem; /* Reduced from 3.2rem */
-  font-weight: 800;
-  margin-bottom:5px; /* Reduced from 20px */
-  line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(45deg, #ffffff, #e6f7ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.title-subtitle {
-  font-size: 1.1rem; /* Reduced from 1.4rem */
-  font-weight: 300;
-  line-height: 1.5; /* Reduced from 1.6 */
-  margin-bottom: 15px; /* Reduced from 30px */
-  opacity: 0.9;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.title-divider {
-  width: 100px;
-  height: px;
-  background: linear-gradient(90deg, transparent, #ffffff, transparent);
-  margin: 0 auto;
-  border-radius: 2px;
-  position: relative;
-}
-
-.title-divider::before,
-.title-divider::after {
-  content: "✦";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ffffff;
-  font-size: 1.2rem;
-}
-
-.title-divider::before {
-  left: -30px;
-}
-
-.title-divider::after {
-  right: -30px;
-}
-
-/* Update main content section */
-#journal-content {
-  background: var(--color-white);
-  padding: 30px 0; /* Reduced padding */
-  position: relative;
-}
-
-#journal-content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--glow-1) 0%, transparent 50%);
-  opacity: 0.05;
-  z-index: 0;
-}
-
 .journal-content-section {
-  position: relative;
-  z-index: 2;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.journal-content-row {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
+/* ===============================
+   Content Blocks (Cards)
+================================ */
+
+.content-block {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px 34px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #2a3cff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.content-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   Typography
+================================ */
+
+.content-block h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #1e1e2f;
+  position: relative;
+}
+
+.content-block h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #2a3cff, #6a7bff);
+  margin-top: 8px;
+  border-radius: 3px;
+}
+
+.content-block p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #333444;
+  margin-bottom: 14px;
+}
+
+.content-block p:last-child {
   margin-bottom: 0;
 }
 
-.journal-column {
-  flex: 1;
-}
-
-/* Welcome Section */
-.welcome-section h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  background: linear-gradient(45deg, var(--color-primary), #3700fc);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.objectives-container h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: var(--color-dark);
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 8px;
-  display: inline-block;
-}
+/* ===============================
+   Objectives List
+================================ */
 
 .objectives-list {
   list-style: none;
@@ -144,119 +124,96 @@ padding: 10px 0 8px;
 }
 
 .objective-item {
-  padding: 12px 0;
-  padding-left: 30px;
   position: relative;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: var(--color-dark);
-  border-bottom: 1px solid var(--color-light);
-  transition: var(--transition);
-}
-
-.objective-item:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.objective-item:hover {
-  background: var(--color-light);
-  padding-left: 35px;
-  transform: translateX(5px);
-}
-
-.objective-item:last-child {
-  border-bottom: none;
-}
-
-/* About Section */
-.about-section {
-  height: 100%;
-}
-
-.about-header h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: var(--color-dark);
-}
-
-.mission-container h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 8px;
-  display: inline-block;
-}
-
-.mission-content {
-  background: var(--color-light);
-  padding: 25px;
-  border-radius: var(--radius-1);
-  border-left: 4px solid var(--color-primary);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.mission-content p {
+  padding-left: 32px;
+  margin-bottom: 12px;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--color-dark);
-  margin-bottom: 15px;
+  color: #2b2c3e;
 }
 
-.mission-content p:last-child {
-  margin-bottom: 0;
+.objective-item::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1rem;
+  color: #2a3cff;
+  font-weight: bold;
 }
 
-/* Responsive Design - Updated with reduced padding */
-/* Responsive Design - Make even shorter on all screens */
-@media (max-width: 1024px) {
-  .page-header-section {
-    padding: 15px 0 12px; /* Reduced from 30px 0 25px */
-  }
-  
-  .main-title {
-    font-size: 2rem; /* Reduced from 2.8rem */
-  }
-  
-  .title-subtitle {
-    font-size: 1rem; /* Reduced from 1.3rem */
-  }
+/* ===============================
+   Numbered Lists
+================================ */
+
+.numbered-list {
+  padding-left: 22px;
+  margin: 0;
 }
+
+.numbered-list li {
+  font-size: 1.03rem;
+  line-height: 1.65;
+  color: #2f3042;
+  margin-bottom: 10px;
+}
+
+.numbered-list li strong {
+  color: #1e1e2f;
+}
+
+/* ===============================
+   Editor Section (Highlight)
+================================ */
+
+.editor-section {
+  border-left-color: #00a884;
+  background: linear-gradient(
+    135deg,
+    #f9fffd 0%,
+    #ffffff 100%
+  );
+}
+
+.editor-section h3 {
+  color: #006b55;
+}
+
+.editor-section p {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* ===============================
+   Responsive Design
+================================ */
 
 @media (max-width: 768px) {
-  .page-header-section {
-    padding: 12px 0 10px; /* Reduced from 25px 0 20px */
+  #journal-content {
+    padding: 40px 0;
   }
-  
-  .main-title {
-    font-size: 1.8rem; /* Reduced from 2.2rem */
-    margin-bottom: 12px; /* Reduced from 15px */
+
+  .content-block {
+    padding: 26px 24px;
   }
-  
-  .title-subtitle {
-    font-size: 0.95rem; /* Reduced from 1.2rem */
-    margin-bottom: 15px; /* Reduced from 25px */
+
+  .content-block h3 {
+    font-size: 1.4rem;
+  }
+
+  .content-block p,
+  .objective-item,
+  .numbered-list li {
+    font-size: 0.98rem;
   }
 }
 
-@media (max-width: 500px) {
-  .page-header-section {
-    padding: 10px 0 8px; /* Reduced from 20px 0 15px */
+@media (max-width: 480px) {
+  .content-block {
+    padding: 22px 20px;
   }
-  
-  .main-title {
-    font-size: 1.5rem; /* Reduced from 1.8rem */
-    margin-bottom: 8px; /* Reduced from 12px */
-  }
-  
-  .title-subtitle {
-    font-size: 0.9rem; /* Reduced from 1.1rem */
-    margin-bottom: 12px; /* Reduced from 20px */
+
+  .content-block h3 {
+    font-size: 1.25rem;
   }
 }

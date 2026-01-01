@@ -16,11 +16,11 @@ function Home() {
   return (
     <>
       <Header />
+      <Project />
+      <About />   
       <JournalContent />
-      <About />         
       <Services />
       <Teams />
-      <Project />
       <Testimonial />
       <Contact />
       <Footer />

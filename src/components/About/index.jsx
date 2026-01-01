@@ -41,6 +41,7 @@ const About = () => {
       <div className='container' ref={container}>
         <div className='column company__photo'>
           <img src={about_image} alt='International New Arts and Sciences Research Journal' />
+       <div className='editer'>Editer archive</div>
         </div>
 
         <div className='column'>
