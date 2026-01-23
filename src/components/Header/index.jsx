@@ -56,6 +56,19 @@ Discover groundbreaking research across diverse <br/>fields of human knowledge i
             <div className='image__container'>
               <img src={hero_image} alt="Electrician at work" />
             </div>
+<p class="header-title">
+  American–Arab Scientific Association for Literature and Science
+</p>
+
+<p class="header-section">
+  Section 2: To publish a Scientific Journal dedicated to scientific research
+  in the fields of Literature and Science
+</p>
+
+<p class="header-journal">
+  International New Arts and Sciences Research Journal
+</p>
+
           </div>
         </div>
         <Achievement/>
