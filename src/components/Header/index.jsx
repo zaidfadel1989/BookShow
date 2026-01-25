@@ -6,18 +6,12 @@ import Achievement from '../Achievement'
 import gsap from 'gsap'
 import { useGSAP } from "@gsap/react";
 
-// Import k1 to k11 images from the correct path
+// Import only k1, k2, k3, k12, k13 images
 import k1 from "../../assets/Header_imgs/k1.jpeg";
 import k2 from "../../assets/Header_imgs/k2.jpeg";
 import k3 from "../../assets/Header_imgs/k3.jpeg";
-import k4 from "../../assets/Header_imgs/k4.jpeg";
-import k5 from "../../assets/Header_imgs/k5.jpeg";
-import k6 from "../../assets/Header_imgs/k6.jpeg";
-import k7 from "../../assets/Header_imgs/k7.jpeg";
-import k8 from "../../assets/Header_imgs/k8.jpeg";
-import k9 from "../../assets/Header_imgs/k9.jpeg";
-import k10 from "../../assets/Header_imgs/k10.jpeg";
-import k11 from "../../assets/Header_imgs/k11.jpeg";
+import k12 from "../../assets/Header_imgs/k12.jpeg";
+import k13 from "../../assets/Header_imgs/k13.jpeg";
 
 // Import icons for modal
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -27,19 +21,20 @@ const Header = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // All k1 to k11 images
-  const bookImages = [
+  // All images for modal (includes k12 and k13)
+  const allImages = [
     { src: k1, alt: "Book Cover 1" },
     { src: k2, alt: "Book Cover 2" },
     { src: k3, alt: "Book Cover 3" },
-    { src: k4, alt: "Book Cover 4" },
-    { src: k5, alt: "Book Cover 5" },
-    { src: k6, alt: "Book Cover 6" },
-    { src: k7, alt: "Book Cover 7" },
-    { src: k8, alt: "Book Cover 8" },
-    { src: k9, alt: "Book Cover 9" },
-    { src: k10, alt: "Book Cover 10" },
-    { src: k11, alt: "Book Cover 11" },
+    { src: k12, alt: "Journal Volume 12" },
+    { src: k13, alt: "Journal Volume 13" },
+  ];
+
+  // Only k1, k2, k3 for the bottom gallery (red box area)
+  const galleryImages = [
+    { src: k1, alt: "Book Cover 1" },
+    { src: k2, alt: "Book Cover 2" },
+    { src: k3, alt: "Book Cover 3" },
   ];
 
   useGSAP(() => {
@@ -51,16 +46,20 @@ const Header = () => {
         { scale: 1, ease: 'sine.in', opacity: 1, y: 0 }
       )
       .from(
-        ".title",
+        ".header-title",
         { opacity: 0, y: -30 }
       )
       .from(
-        ".description",
+        ".header-section",
         { opacity: 0, y: -30 }
       )
       .from(
-        ".buttons__container",
-        { opacity: 0, y: 40 }
+        ".header-journal",
+        { opacity: 0, y: -30 }
+      )
+      .from(
+        ".journal-images-row",
+        { opacity: 0, y: 20, stagger: 0.2 }
       )
   }, { scope: container })
 
@@ -76,15 +75,15 @@ const Header = () => {
   };
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? bookImages.length - 1 : currentIndex - 1;
+    const newIndex = currentIndex === 0 ? allImages.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    setSelectedImage(bookImages[newIndex]);
+    setSelectedImage(allImages[newIndex]);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex === bookImages.length - 1 ? 0 : currentIndex + 1;
+    const newIndex = currentIndex === allImages.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-    setSelectedImage(bookImages[newIndex]);
+    setSelectedImage(allImages[newIndex]);
   };
 
   // Handle keyboard navigation
@@ -108,52 +107,58 @@ const Header = () => {
   return (
     <header id='header'>
       <div className='container full__height'>
-        <div className="row">
-          <div className='column'>
-            <h1 className='title'>
-              International{" "}<br />
-              <span className='highlight'>New Arts & Sciences</span>
-            </h1>
-            <p className='text__muted description'>
-              Discover groundbreaking research across diverse <br />fields of human knowledge in our annual magazine.
-            </p>
-
-            <div className='buttons__container'>
-              <Link to="services" smooth={true} className="btn">Our Services</Link>
-              <Link to="contact" smooth={true} className="btn btn__primary">Contact Us</Link>
-            </div>
+        {/* Centered Electrician Image Section */}
+        <div className="centered-content">
+          <div className='image__container'>
+            <img src={hero_image} alt="Electrician at work" />
           </div>
-          <div className="column">
-            <div className='image__container'>
-              <img src={hero_image} alt="Electrician at work" />
+          <p className="header-title">
+            American–Arab Scientific Association for Literature and Science
+          </p>
+          <p className="header-section">
+            Section 2: To publish a Scientific Journal dedicated to scientific research
+            in the fields of Literature and Science
+          </p>
+          <p className="header-journal">
+            International New Arts and Sciences Research Journal
+          </p>
+          
+          {/* K12 and K13 Images - Side by side under journal title */}
+          <div className="journal-images-row">
+            <div 
+              className="journal-image-wrapper"
+              onClick={() => openImageModal(allImages[3], 3)}
+              style={{ cursor: 'pointer' }}
+            >
+              <img 
+                src={k12} 
+                alt="Journal Volume 12" 
+                className="journal-image"
+              />
+              <div className="journal-image-label">Volume 12</div>
             </div>
-            <p className="header-title">
-              American–Arab Scientific Association for Literature and Science
-            </p>
-
-            <p className="header-section">
-              Section 2: To publish a Scientific Journal dedicated to scientific research
-              in the fields of Literature and Science
-            </p>
-
-            <p className="header-journal">
-              International New Arts and Sciences Research Journal
-            </p>
+            
+            <div 
+              className="journal-image-wrapper"
+              onClick={() => openImageModal(allImages[4], 4)}
+              style={{ cursor: 'pointer' }}
+            >
+              <img 
+                src={k13} 
+                alt="Journal Volume 13" 
+                className="journal-image"
+              />
+              <div className="journal-image-label">Volume 13</div>
+            </div>
           </div>
         </div>
-        <Achievement />
+        
+        {/* <Achievement /> */}
 
-        {/* Books Gallery Section - Added to the bottom */}
+        {/* Books Gallery Section - Now only shows k1, k2, k3 */}
         <div className="books-gallery-section">
-          <h2 className="books-gallery-title">
-            <span className='highlight'>Our Publications</span>
-          </h2>
-          <p className="books-gallery-description text__muted">
-            Showcasing our collection of published books and academic works
-          </p>
-
           <div className="books-gallery-grid">
-            {bookImages.map((image, index) => (
+            {galleryImages.map((image, index) => (
               <div
                 className="books-gallery-item"
                 key={index}
@@ -166,13 +171,13 @@ const Header = () => {
                   className="books-gallery-image"
                   loading="lazy"
                 />
-                {/* REMOVED: <div className="book-number">#{image.number}</div> */}
               </div>
             ))}
           </div>
 
           <div className="books-gallery-info" style={{ textAlign: 'center', marginTop: '20px' }}>
             <p className="text__muted">
+              {/* Additional info can go here */}
             </p>
           </div>
         </div>
@@ -198,7 +203,7 @@ const Header = () => {
               />
               <div className="book-image-info">
                 <h3>{selectedImage.alt}</h3>
-                <p>Image {currentIndex + 1} of {bookImages.length}</p>
+                <p>Image {currentIndex + 1} of {allImages.length}</p>
               </div>
             </div>
 

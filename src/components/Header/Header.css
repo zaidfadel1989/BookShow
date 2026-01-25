@@ -3,28 +3,6 @@
     position: static !important;
 }
 
-.header-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.7px;
-  color: #1a1a1a;
-  margin-bottom: 6px;
-}
-
-.header-section {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 4px;
-}
-
-.header-journal {
-  font-size: 1.05rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #0a5;
-}
-
 #header::before{
     content: "";
     position: absolute;
@@ -36,57 +14,131 @@
     background: linear-gradient(to top,transparent 10%,var(--color-primary)100%);
 }
 
-.highlight {
-  background: linear-gradient(700deg, #3700fc, #0613cc);
-  background-clip: text;
-  -webkit-background-clip: text; /* Needed for Chrome/Safari */
-  -webkit-text-fill-color: transparent; /* Needed to show gradient as text color */
-  display: inline-block; /* Required */
-  font-weight: 600;
-}
-
-#header .container * {
-    text-align: center; /* Center all text in header */
-}
-
-#header .container{
-    padding-top: 0px;
-}
-
-#header .container >.row{
-    display: flex;
-    gap: 40px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-#header .container .row .column:first-child {
-    flex: 1;
+/* Centered Electrician Image Section */
+.centered-content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center children horizontally */
-    text-align: center; /* Center text */
-}
-
-#header .container .buttons__container{
-    display: flex;
-    gap: 20px;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+    min-height: 400px;
 }
 
 #header .image__container{
     width: 100%;
     max-width: 450px;
-    margin: auto;
+    margin: 20px auto;
     overflow: hidden;
     border-radius: var(--radius-2);
     transition: var(--transition);
 }
 
+#header .image__container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 #header .image__container:hover{
     transform: scale(1.1);
+}
+
+.header-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  margin-top: 30px;
+  max-width: 800px;
+}
+
+.header-section {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.header-journal {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #0a5;
+  margin-top: 15px;
+  max-width: 800px;
+}
+
+/* K12 and K13 Journal Images - Side by side (BIGGER SIZE) */
+.journal-images-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 900px; /* Increased max-width */
+}
+
+.journal-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+    padding: 20px; /* Increased padding */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.journal-image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.journal-image {
+    width: 250px; /* Increased from 180px */
+    height: 350px; /* Increased from 250px */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.journal-image-wrapper:hover .journal-image {
+    transform: scale(1.03);
+}
+
+.journal-image-label {
+    margin-top: 15px; /* Increased from 12px */
+    font-size: 1.3rem; /* Increased from 1.1rem */
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding: 10px 25px; /* Increased padding */
+    background: linear-gradient(700deg, #3700fc, #0613cc);
+    border-radius: 25px;
+    letter-spacing: 0.5px;
+    min-width: 140px; /* Increased from 120px */
+}
+
+.highlight {
+  background: linear-gradient(700deg, #3700fc, #0613cc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 600;
+}
+
+#header .container{
+    padding-top: 0px;
 }
 
 /* ONLY FOR K PICTURES GALLERY - FULL WIDTH */
@@ -96,7 +148,7 @@
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid var(--color-ui-variant);
-    width: 100vw; /* Make section full viewport width */
+    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
@@ -127,14 +179,14 @@
     padding: 0 20px;
 }
 
-/* Books Grid Layout - K Pictures Only - FULL WIDTH & CIRCULAR */
+/* Books Grid Layout - Now only 3 items (k1, k2, k3) */
 .books-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 20px 0;
     width: 100%;
-    max-width: 1400px; /* Optional: max width for content */
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
@@ -143,16 +195,16 @@
 }
 
 .books-gallery-item {
-    height: 200px; /* Height for circle */
-    width: 200px; /* Width equal to height for perfect circle */
+    height: 200px;
+    width: 200px;
     position: relative;
     transition: var(--transition);
-    border-radius: 50%; /* 50% for circle */
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background: white;
     cursor: pointer;
-    margin: 0 auto; /* Center the circles in their grid cells */
+    margin: 0 auto;
 }
 
 .books-gallery-item:hover {
@@ -163,9 +215,9 @@
 .books-gallery-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keep cover for better filling in circle */
+    object-fit: cover;
     transition: var(--transition);
-    border-radius: 50%; /* 50% to match container */
+    border-radius: 50%;
 }
 
 .books-gallery-item:hover .books-gallery-image {
@@ -184,58 +236,73 @@
     padding-right: 20px;
 }
 
-/* Responsive Books Grid - K Pictures Only */
-@media (max-width: 1400px) {
-    .books-gallery-grid {
-        grid-template-columns: repeat(5, 1fr);
-        max-width: 1200px;
-    }
-    
-    .books-gallery-item {
-        height: 190px;
-        width: 190px; /* Keep width equal to height */
-    }
-}
-
-@media (max-width: 1200px) {
-    .books-gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 1000px;
-    }
-    
-    .books-gallery-item {
-        height: 180px;
-        width: 180px; /* Keep width equal to height */
-    }
-}
-
+/* Responsive Books Grid - Updated for 3 items */
 @media (max-width: 992px) {
     .books-gallery-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        max-width: 700px;
+    }
+    
+    /* Responsive for journal images */
+    .journal-images-row {
+        gap: 30px;
         max-width: 800px;
     }
     
-    .books-gallery-item {
-        height: 170px;
-        width: 170px; /* Keep width equal to height */
+    .journal-image {
+        width: 220px;
+        height: 310px;
     }
     
-    .books-gallery-title {
-        font-size: 2.2rem;
+    .journal-image-label {
+        font-size: 1.2rem;
+        padding: 9px 22px;
+        min-width: 130px;
     }
 }
 
 @media (max-width: 768px) {
+    .centered-content {
+        padding: 30px 15px;
+        min-height: 350px;
+    }
+    
+    .header-title {
+        font-size: 1.5rem;
+    }
+    
+    .header-section {
+        font-size: 1rem;
+    }
+    
+    .header-journal {
+        font-size: 1.1rem;
+    }
+    
+    .journal-images-row {
+        gap: 25px;
+    }
+    
+    .journal-image {
+        width: 180px;
+        height: 250px;
+    }
+    
+    .journal-image-label {
+        font-size: 1.1rem;
+        padding: 8px 20px;
+        min-width: 120px;
+    }
+    
     .books-gallery-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-        max-width: 700px;
+        max-width: 600px;
     }
     
     .books-gallery-item {
         height: 160px;
-        width: 160px; /* Keep width equal to height */
+        width: 160px;
     }
     
     .books-gallery-section {
@@ -245,15 +312,52 @@
 }
 
 @media (max-width: 576px) {
+    .centered-content {
+        padding: 20px 10px;
+        min-height: 300px;
+    }
+    
+    #header .image__container {
+        max-width: 350px;
+    }
+    
+    .header-title {
+        font-size: 1.3rem;
+    }
+    
+    .header-section {
+        font-size: 0.95rem;
+    }
+    
+    .header-journal {
+        font-size: 1rem;
+    }
+    
+    .journal-images-row {
+        gap: 20px;
+        flex-direction: row;
+    }
+    
+    .journal-image {
+        width: 160px;
+        height: 225px;
+    }
+    
+    .journal-image-label {
+        font-size: 1rem;
+        padding: 7px 18px;
+        min-width: 110px;
+    }
+    
     .books-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 6px;
-        max-width: 500px;
+        max-width: 400px;
     }
     
     .books-gallery-item {
         height: 180px;
-        width: 180px; /* Keep width equal to height */
+        width: 180px;
     }
     
     .books-gallery-title {
@@ -267,14 +371,46 @@
 }
 
 @media (max-width: 400px) {
+    .centered-content {
+        min-height: 250px;
+    }
+    
+    #header .image__container {
+        max-width: 300px;
+    }
+    
+    .header-title {
+        font-size: 1.2rem;
+    }
+    
+    .header-section {
+        font-size: 0.9rem;
+    }
+    
+    .journal-images-row {
+        gap: 15px;
+    }
+    
+    .journal-image {
+        width: 140px;
+        height: 200px;
+    }
+    
+    .journal-image-label {
+        font-size: 0.9rem;
+        padding: 6px 16px;
+        min-width: 100px;
+    }
+    
     .books-gallery-grid {
+        grid-template-columns: repeat(1, 1fr);
         gap: 5px;
-        max-width: 100%;
+        max-width: 300px;
     }
     
     .books-gallery-item {
-        height: 170px;
-        width: 170px; /* Keep width equal to height */
+        height: 200px;
+        width: 200px;
     }
     
     .books-gallery-section {
@@ -283,7 +419,7 @@
     }
 }
 
-/* Book Modal Styles - K Pictures Only */
+/* Book Modal Styles */
 .book-modal {
     position: fixed;
     top: 0;
@@ -385,7 +521,7 @@
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
-    border-radius: 10%; /* Circular in modal too */
+    border-radius: 10%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     background: white;
     padding: 10px;
@@ -411,7 +547,7 @@
     opacity: 0.8;
 }
 
-/* Responsive modal styles - K Pictures Only */
+/* Responsive modal styles */
 @media (max-width: 768px) {
     .book-modal-content {
         width: 95%;
@@ -463,32 +599,5 @@
     .book-modal-image {
         max-height: 60vh;
         padding: 5px;
-    }
-}
-
-/* Existing responsive styles */
-@media(max-width:1024px){
-    #header .container *{
-        text-align: center;
-    }
-
-    #header .container > .row{
-        flex-direction: column;
-    }
-
-    #header .container .buttons__container{
-        justify-content: center;
-    }
-}
-
-@media(max-width:500px){
-    .highlight {
-        text-decoration: none;
-    }
-    
-    .description {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; /* Optional: Adds "..." if the line is too long */
     }
 }
