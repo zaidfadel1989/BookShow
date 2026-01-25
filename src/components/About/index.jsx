@@ -35,8 +35,7 @@ import q21 from "../../assets/about_imgs/q21.jpeg";
 import q22 from "../../assets/about_imgs/q22.jpeg";
 import q23 from "../../assets/about_imgs/q23.jpeg";
 
-import { FaCheck, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Link } from "react-scroll";
+import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const About = () => {
   const container = useRef(null);
@@ -93,89 +92,96 @@ const About = () => {
   ];
 
   // Slider settings - Show only 2 slides at a time
- const sliderSettings = {
-  infinite: true,
-  speed: 2000,  // Changed from 1000 to 1500 (1.5 seconds instead of 1 second)
-  slidesToShow: 2,
-  slidesToScroll: 2,
-  centerMode: false,
-  centerPadding: '0px',
-  pauseOnHover: true,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
+  const sliderSettings = {
+    infinite: true,
+    speed: 1000, // Changed from 2000 to 1000 for smoother transition
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    centerMode: false,
+    centerPadding: '0px',
+    pauseOnHover: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 2,  // Changed from 3 to 2
+          slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: true,
         }
       },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 2,  // Changed from 3 to 2
+          slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: true,
         }
       },
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,  // Already 2, keep it
+          slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: true,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,  // Changed from 2 to 2 (keep it)
+          slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: true,
         }
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,  // On mobile, show 1 slide
+          slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: '40px',
+          arrows: false, // Hide arrows on mobile
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,  // On small mobile, show 1 slide
+          slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: '30px',
+          arrows: false, // Hide arrows on small mobile
         }
       }
     ]
   };
 
-  // Custom arrow components
+  // Fixed Custom Next Arrow Component
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", right: "-45px" }}
+        style={{ ...style, display: "block", right: "-45px", zIndex: 10 }}
         onClick={onClick}
       >
-        <FaChevronRight style={{ color: "var(--color-ui-primary)", fontSize: "2rem" }} />
+        <FaChevronRight style={{ color: "#4a90e2", fontSize: "2rem" }} />
       </div>
     );
   }
 
+  // Fixed Custom Previous Arrow Component
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", left: "-45px" }}
+        style={{ ...style, display: "block", left: "-45px", zIndex: 10 }}
         onClick={onClick}
       >
-        <FaChevronLeft style={{ color: "var(--color-ui-primary)", fontSize: "2rem" }} />
+        <FaChevronLeft style={{ color: "#4a90e2", fontSize: "2rem" }} />
       </div>
     );
   }
@@ -204,7 +210,7 @@ const About = () => {
       setCurrentIndex(newIndex);
       setSelectedImage(galleryImages[newIndex]);
       setSlideDirection('enter');
-    }, 50);
+    }, 300); // Increased from 50ms to 300ms to match CSS animation
   };
 
   const goToNext = () => {
@@ -216,7 +222,7 @@ const About = () => {
       setCurrentIndex(newIndex);
       setSelectedImage(galleryImages[newIndex]);
       setSlideDirection('enter');
-    }, 50);
+    }, 300); // Increased from 50ms to 300ms to match CSS animation
   };
 
   // Handle keyboard navigation
@@ -290,7 +296,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Gallery Section with CAROUSEL SLIDER (like project page) */}
+      {/* Gallery Section with CAROUSEL SLIDER */}
       <div className="gallery__section" ref={galleryContainer}>
         <h2 className="gallery__title">
           <span className='g-text'>Our Gallery</span>
@@ -313,10 +319,7 @@ const About = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="gallery-card-content">
-                    <h3 className="gallery-card-title">{image.alt}</h3>
-                    <p className="gallery-card-desc">{image.description.substring(0, 80)}...</p>
-                  </div>
+                  {/* Text content removed as requested */}
                 </div>
               </div>
             ))}

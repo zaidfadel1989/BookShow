@@ -1,11 +1,13 @@
-import React,{useRef} from 'react'
+import React, { useRef } from 'react'
 import "./Project.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {projects} from "../../data";
+import { projects } from "../../data";
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 gsap.registerPlugin(ScrollTrigger);
 
 import Slider from "react-slick"
@@ -29,18 +31,62 @@ const Project = () => {
       .fromTo(".slick-slide", {x: 100, opacity: 0}, {opacity: 1, stagger: .5, x: 0})
   }, {scope: container})
 
+  // Custom Next Arrow Component
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", right: "-45px", zIndex: 1 }}
+        onClick={onClick}
+      >
+        <FaChevronRight style={{ color: "#4a90e2", fontSize: "2rem" }} />
+      </div>
+    );
+  }
+
+  // Custom Previous Arrow Component
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", left: "-45px", zIndex: 1 }}
+        onClick={onClick}
+      >
+        <FaChevronLeft style={{ color: "#4a90e2", fontSize: "2rem" }} />
+      </div>
+    );
+  }
+
   const settings = {
     infinite: true,
-    speed: 3000,
+    speed: 1000, // Changed from 3000 to 1000 for smoother transition
     slidesToShow: 2,
     centerMode: true,
     centerPadding: '20px',
     pauseOnHover: true,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000, // Changed from 2000 to 3000
+    nextArrow: <SampleNextArrow />, // Added custom next arrow
+    prevArrow: <SamplePrevArrow />, // Added custom prev arrow
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: '15px',
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '20px',
+        }
+      },
+      {
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           centerPadding: '10px',
