@@ -82,7 +82,7 @@
     gap: 40px;
     margin-top: 25px;
     width: 100%;
-    max-width: 900px; /* Increased max-width */
+    max-width: 900px;
 }
 
 .journal-image-wrapper {
@@ -90,7 +90,7 @@
     flex-direction: column;
     align-items: center;
     transition: var(--transition);
-    padding: 20px; /* Increased padding */
+    padding: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -103,8 +103,8 @@
 }
 
 .journal-image {
-    width: 250px; /* Increased from 180px */
-    height: 350px; /* Increased from 250px */
+    width: 250px;
+    height: 350px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -116,16 +116,16 @@
 }
 
 .journal-image-label {
-    margin-top: 15px; /* Increased from 12px */
-    font-size: 1.3rem; /* Increased from 1.1rem */
+    margin-top: 15px;
+    font-size: 1.3rem;
     font-weight: 600;
     color: white;
     text-align: center;
-    padding: 10px 25px; /* Increased padding */
+    padding: 10px 25px;
     background: linear-gradient(700deg, #3700fc, #0613cc);
     border-radius: 25px;
     letter-spacing: 0.5px;
-    min-width: 140px; /* Increased from 120px */
+    min-width: 140px;
 }
 
 .highlight {
@@ -179,37 +179,68 @@
     padding: 0 20px;
 }
 
-/* Books Grid Layout - Now only 3 items (k1, k2, k3) */
+/* Books Grid Layout - BIGGER with middle image lower */
 .books-gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 20px 0;
+    gap: 20px;
+    padding: 30px 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
+    align-items: end; /* Align items to bottom */
 }
 
-.books-gallery-item {
-    height: 200px;
-    width: 200px;
-    position: relative;
+/* First image (left) */
+.books-gallery-item:nth-child(1) {
+    height: 280px;
+    width: 280px;
+    margin-top: 0;
     transition: var(--transition);
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     background: white;
     cursor: pointer;
-    margin: 0 auto;
+    position: relative;
+}
+
+/* Second image (middle) - positioned lower */
+.books-gallery-item:nth-child(2) {
+    height: 320px; /* Taller than others */
+    width: 320px; /* Wider than others */
+    margin-top: 30px; /* Pushed down */
+    transition: var(--transition);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 2; /* Ensure it's above others */
+}
+
+/* Third image (right) */
+.books-gallery-item:nth-child(3) {
+    height: 280px;
+    width: 280px;
+    margin-top: 0;
+    transition: var(--transition);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: white;
+    cursor: pointer;
+    position: relative;
 }
 
 .books-gallery-item:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .books-gallery-image {
@@ -221,13 +252,13 @@
 }
 
 .books-gallery-item:hover .books-gallery-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .books-gallery-info {
     text-align: center;
-    margin-top: 30px;
-    padding: 15px;
+    margin-top: 40px;
+    padding: 20px;
     border-radius: 10px;
     max-width: 1400px;
     margin-left: auto;
@@ -236,11 +267,23 @@
     padding-right: 20px;
 }
 
-/* Responsive Books Grid - Updated for 3 items */
-@media (max-width: 992px) {
+/* Responsive Books Grid - Updated for 3 items with middle lower */
+@media (max-width: 1200px) {
     .books-gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 700px;
+        max-width: 900px;
+        gap: 15px;
+    }
+    
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(3) {
+        height: 250px;
+        width: 250px;
+    }
+    
+    .books-gallery-item:nth-child(2) {
+        height: 280px;
+        width: 280px;
+        margin-top: 20px;
     }
     
     /* Responsive for journal images */
@@ -258,6 +301,25 @@
         font-size: 1.2rem;
         padding: 9px 22px;
         min-width: 130px;
+    }
+}
+
+@media (max-width: 992px) {
+    .books-gallery-grid {
+        max-width: 800px;
+        gap: 12px;
+    }
+    
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(3) {
+        height: 220px;
+        width: 220px;
+    }
+    
+    .books-gallery-item:nth-child(2) {
+        height: 250px;
+        width: 250px;
+        margin-top: 15px;
     }
 }
 
@@ -295,14 +357,20 @@
     }
     
     .books-gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        max-width: 600px;
+        max-width: 700px;
+        gap: 10px;
     }
     
-    .books-gallery-item {
-        height: 160px;
-        width: 160px;
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(3) {
+        height: 190px;
+        width: 190px;
+    }
+    
+    .books-gallery-item:nth-child(2) {
+        height: 220px;
+        width: 220px;
+        margin-top: 15px;
     }
     
     .books-gallery-section {
@@ -350,14 +418,17 @@
     }
     
     .books-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        max-width: 400px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        max-width: 600px;
     }
     
-    .books-gallery-item {
-        height: 180px;
-        width: 180px;
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(2),
+    .books-gallery-item:nth-child(3) {
+        height: 160px;
+        width: 160px;
+        margin-top: 0; /* Reset margin on mobile */
     }
     
     .books-gallery-title {
@@ -367,6 +438,22 @@
     .books-gallery-description {
         font-size: 1rem;
         margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .books-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        max-width: 500px;
+    }
+    
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(2),
+    .books-gallery-item:nth-child(3) {
+        height: 140px;
+        width: 140px;
+        margin-top: 0;
     }
 }
 
@@ -403,14 +490,17 @@
     }
     
     .books-gallery-grid {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 5px;
-        max-width: 300px;
+        max-width: 400px;
     }
     
-    .books-gallery-item {
-        height: 200px;
-        width: 200px;
+    .books-gallery-item:nth-child(1),
+    .books-gallery-item:nth-child(2),
+    .books-gallery-item:nth-child(3) {
+        height: 120px;
+        width: 120px;
+        margin-top: 0;
     }
     
     .books-gallery-section {

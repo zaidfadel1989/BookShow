@@ -33,8 +33,8 @@ const Header = () => {
   // Only k1, k2, k3 for the bottom gallery (red box area)
   const galleryImages = [
     { src: k1, alt: "Book Cover 1" },
-    { src: k2, alt: "Book Cover 2" },
-    { src: k3, alt: "Book Cover 3" },
+    { src: k3, alt: "Book Cover 2" },
+    { src: k2, alt: "Book Cover 3" },
   ];
 
   useGSAP(() => {
