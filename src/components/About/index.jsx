@@ -1,5 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import "./About.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 // Import the main images that we know exist
 import m1 from "../../assets/m1.jpeg";
@@ -37,76 +40,212 @@ import { Link } from "react-scroll";
 
 const About = () => {
   const container = useRef(null);
+  const galleryContainer = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState('enter');
 
-  // ALL 23 gallery images
+  // ALL 23 gallery images with descriptions
   const galleryImages = [
-    { src: q1, alt: "Research Publication 1", number: 1 },
-    { src: q2, alt: "Research Publication 2", number: 2 },
-    { src: q3, alt: "Research Publication 3", number: 3 },
-    { src: q4, alt: "Research Publication 4", number: 4 },
-    { src: q5, alt: "Research Publication 5", number: 5 },
-    { src: q6, alt: "Research Publication 6", number: 6 },
-    { src: q7, alt: "Research Publication 7", number: 7 },
-    { src: q8, alt: "Research Publication 8", number: 8 },
-    { src: q9, alt: "Research Publication 9", number: 9 },
-    { src: q10, alt: "Research Publication 10", number: 10 },
-    { src: q11, alt: "Research Publication 11", number: 11 },
-    { src: q12, alt: "Research Publication 12", number: 12 },
-    { src: q13, alt: "Research Publication 13", number: 13 },
-    { src: q14, alt: "Research Publication 14", number: 14 },
-    { src: q15, alt: "Research Publication 15", number: 15 },
-    { src: q16, alt: "Research Publication 16", number: 16 },
-    { src: q17, alt: "Research Publication 17", number: 17 },
-    { src: q18, alt: "Research Publication 18", number: 18 },
-    { src: q19, alt: "Research Publication 19", number: 19 },
-    { src: q20, alt: "Research Publication 20", number: 20 },
-    { src: q21, alt: "Research Publication 21", number: 21 },
-    { src: q22, alt: "Research Publication 22", number: 22 },
-    { src: q23, alt: "Research Publication 23", number: 23 },
+    { 
+      src: q1, 
+      alt: "Translation: Some Aspects Of Applications", 
+      number: 1,
+      description: "Translation: In The Expression In Another Language Of What Has Been Expressed In A Source Language. Preservation of Semantic And Stylistic Equivalence."
+    },
+    { 
+      src: q2, 
+      alt: "The Alfa English Dictionary", 
+      number: 2,
+      description: "لـسـان مـعـجـم تـكـراراً مـعـجـم سـابـقـة وثـمـة نـوع جـديـد. فـهو أول مـعـجـم مـكـتـوب في الأسـمـاء الـتـي يـسـمـح بـالـكـلـمـة."
+    },
+    { 
+      src: q3, 
+      alt: "اللغة الإنجليزية", 
+      number: 3,
+      description: "لـيـس هـذا الـمـعـجـم تـكـراراً مـعـجـم سـابـقـة وثـمـة نـوع جـديـد. فـهو أول مـعـجـم مـكـتـوب في الأسـمـاء الـتـي يـسـمـح بـالـكـلـمـة."
+    },
+    { 
+      src: q4, 
+      alt: "Novels of Charlotte and Emily Bronte", 
+      number: 4,
+      description: "Prof. Mahmood Al Ali - Research on the literary works of Charlotte and Emily Bronte"
+    },
+    { src: q5, alt: "Research Publication Volume 5", number: 5, description: "Volume 5 of International Research Journal" },
+    { src: q6, alt: "Research Publication Volume 6", number: 6, description: "Volume 6 of International Research Journal" },
+    { src: q7, alt: "Research Publication Volume 7", number: 7, description: "Volume 7 of International Research Journal" },
+    { src: q8, alt: "Research Publication Volume 8", number: 8, description: "Volume 8 of International Research Journal" },
+    { src: q9, alt: "Research Publication Volume 9", number: 9, description: "Volume 9 of International Research Journal" },
+    { src: q10, alt: "Research Publication Volume 10", number: 10, description: "Volume 10 of International Research Journal" },
+    { src: q11, alt: "Research Publication Volume 11", number: 11, description: "Volume 11 of International Research Journal" },
+    { src: q12, alt: "Research Publication Volume 12", number: 12, description: "Volume 12 of International Research Journal" },
+    { src: q13, alt: "Research Publication Volume 13", number: 13, description: "Volume 13 of International Research Journal" },
+    { src: q14, alt: "Research Publication Volume 14", number: 14, description: "Volume 14 of International Research Journal" },
+    { src: q15, alt: "Research Publication Volume 15", number: 15, description: "Volume 15 of International Research Journal" },
+    { src: q16, alt: "Research Publication Volume 16", number: 16, description: "Volume 16 of International Research Journal" },
+    { src: q17, alt: "Research Publication Volume 17", number: 17, description: "Volume 17 of International Research Journal" },
+    { src: q18, alt: "Research Publication Volume 18", number: 18, description: "Volume 18 of International Research Journal" },
+    { src: q19, alt: "Research Publication Volume 19", number: 19, description: "Volume 19 of International Research Journal" },
+    { src: q20, alt: "Research Publication Volume 20", number: 20, description: "Volume 20 of International Research Journal" },
+    { src: q21, alt: "Research Publication Volume 21", number: 21, description: "Volume 21 of International Research Journal" },
+    { src: q22, alt: "Research Publication Volume 22", number: 22, description: "Volume 22 of International Research Journal" },
+    { src: q23, alt: "Research Publication Volume 23", number: 23, description: "Volume 23 of International Research Journal" },
   ];
+
+  // Slider settings - Show only 2 slides at a time
+ const sliderSettings = {
+  infinite: true,
+  speed: 2000,  // Changed from 1000 to 1500 (1.5 seconds instead of 1 second)
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  centerMode: false,
+  centerPadding: '0px',
+  pauseOnHover: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 2,  // Changed from 3 to 2
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,  // Changed from 3 to 2
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,  // Already 2, keep it
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,  // Changed from 2 to 2 (keep it)
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,  // On mobile, show 1 slide
+          slidesToScroll: 1,
+          centerPadding: '40px',
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,  // On small mobile, show 1 slide
+          slidesToScroll: 1,
+          centerPadding: '30px',
+        }
+      }
+    ]
+  };
+
+  // Custom arrow components
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", right: "-45px" }}
+        onClick={onClick}
+      >
+        <FaChevronRight style={{ color: "var(--color-ui-primary)", fontSize: "2rem" }} />
+      </div>
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", left: "-45px" }}
+        onClick={onClick}
+      >
+        <FaChevronLeft style={{ color: "var(--color-ui-primary)", fontSize: "2rem" }} />
+      </div>
+    );
+  }
 
   const openImageModal = (image, index) => {
     setSelectedImage(image);
     setCurrentIndex(index);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    setSlideDirection('enter');
+    document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
-    setSelectedImage(null);
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    setSlideDirection('exit');
+    setTimeout(() => {
+      setSelectedImage(null);
+      document.body.style.overflow = 'auto';
+    }, 300);
   };
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(galleryImages[newIndex]);
+    if (galleryImages.length === 0) return;
+    
+    setSlideDirection('slide-left');
+    setTimeout(() => {
+      const newIndex = currentIndex === 0 ? galleryImages.length - 1 : currentIndex - 1;
+      setCurrentIndex(newIndex);
+      setSelectedImage(galleryImages[newIndex]);
+      setSlideDirection('enter');
+    }, 50);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(galleryImages[newIndex]);
+    if (galleryImages.length === 0) return;
+    
+    setSlideDirection('slide-right');
+    setTimeout(() => {
+      const newIndex = currentIndex === galleryImages.length - 1 ? 0 : currentIndex + 1;
+      setCurrentIndex(newIndex);
+      setSelectedImage(galleryImages[newIndex]);
+      setSlideDirection('enter');
+    }, 50);
   };
 
   // Handle keyboard navigation
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (!selectedImage) return;
       
-      if (e.key === 'Escape') {
-        closeImageModal();
-      } else if (e.key === 'ArrowLeft') {
-        goToPrevious();
-      } else if (e.key === 'ArrowRight') {
-        goToNext();
+      switch (e.key) {
+        case 'Escape':
+          closeImageModal();
+          break;
+        case 'ArrowLeft':
+          goToPrevious();
+          break;
+        case 'ArrowRight':
+          goToNext();
+          break;
+        default:
+          break;
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage, currentIndex]);
+
+  const getModalContentClass = () => {
+    return `modal-content ${slideDirection}`;
+  };
 
   return (
     <section id='about'>
@@ -148,70 +287,53 @@ const About = () => {
             postgraduate students, and practitioners to publish current and significant research
             papers in all fields of science, arts, and technology.
           </p>
-
-          <div className='group'>
-            {[
-              { label: "Explore", title: "Books" },
-              { label: "Read", title: "Online" },
-              { label: "Research", title: "Journals" },
-              { label: "Discover", title: "Authors" },
-            ].map((item, index) => (
-              <div className='row' key={index}>
-                <div className='icon__container'>
-                  <FaCheck />
-                </div>
-                <div className='details'>
-                  <p className="text__muted">{item.label}</p>
-                  <h3>{item.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className='buttons__container'>
-            <Link to="project" smooth={true} className="btn">Explore</Link>
-            <Link to="contact" smooth={true} className="btn btn__primary">Get a quote</Link>
-          </div>
         </div>
       </div>
 
-      {/* Gallery Section with ALL 23 images */}
-      <div className="gallery__section">
+      {/* Gallery Section with CAROUSEL SLIDER (like project page) */}
+      <div className="gallery__section" ref={galleryContainer}>
         <h2 className="gallery__title">
           <span className='g-text'>Our Gallery</span>
         </h2>
-        <p className="gallery__description text__muted">
-          Showcasing our journey in scholarly publishing and academic excellence
-        </p>
         
-        <div className="gallery__grid">
-          {galleryImages.map((image, index) => (
-            <div 
-              className="gallery__item" 
-              key={index}
-              onClick={() => openImageModal(image, index)}
-              style={{ cursor: 'pointer' }}
-            >
-              <img 
-                src={image.src} 
-                alt={image.alt}
-                className="gallery__image"
-                loading="lazy"
-              />
-              <div className="image__number">{image.number}</div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="gallery__success" style={{ textAlign: 'center', marginTop: '20px' }}>
-         
+        <div className="gallery-carousel-container">
+          <Slider {...sliderSettings} className="gallery-slider">
+            {galleryImages.map((image, index) => (
+              <div 
+                className="gallery-slide" 
+                key={index}
+                onClick={() => openImageModal(image, index)}
+              >
+                <div className="gallery-card">
+                  <div className="gallery-image-container">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      className="gallery-slide-image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="gallery-card-content">
+                    <h3 className="gallery-card-title">{image.alt}</h3>
+                    <p className="gallery-card-desc">{image.description.substring(0, 80)}...</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image Modal with Sliding Effect */}
       {selectedImage && (
-        <div className="image-modal" onClick={closeImageModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className={`image-modal ${slideDirection === 'exit' ? 'fade-out' : ''}`} 
+          onClick={closeImageModal}
+        >
+          <div 
+            className={getModalContentClass()} 
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className="modal-close" onClick={closeImageModal}>
               <FaTimes />
             </button>
@@ -225,10 +347,12 @@ const About = () => {
                 src={selectedImage.src} 
                 alt={selectedImage.alt}
                 className="modal-image"
+                key={currentIndex}
               />
               <div className="image-info">
                 <h3>{selectedImage.alt}</h3>
-                <p>Image {selectedImage.number} of {galleryImages.length}</p>
+                <p className="image-description">{selectedImage.description}</p>
+                <p className="image-counter">Image {selectedImage.number} of {galleryImages.length}</p>
               </div>
             </div>
             

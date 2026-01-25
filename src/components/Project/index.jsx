@@ -51,10 +51,10 @@ const Project = () => {
 
   return (
     <section id='project' ref={container}>
-      <div className='project__top'>
+      {/* <div className='project__top'>
         <h1 className='title'>Our<span className='g-text'> Projects</span></h1>
         <h3 className='sub__title'>Innovative construction projects, exceptional craftsmanship.</h3>
-      </div>
+      </div> */}
       
       <Slider {...settings} className='projects__container'>
         {projects.map((project, index) => (
