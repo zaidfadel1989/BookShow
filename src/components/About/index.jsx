@@ -43,6 +43,7 @@ const About = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState('enter');
+  const [showModalButtons, setShowModalButtons] = useState(false); // NEW STATE
 
   // ALL 23 gallery images with descriptions
   const galleryImages = [
@@ -94,7 +95,7 @@ const About = () => {
   // Slider settings - Show only 2 slides at a time
   const sliderSettings = {
     infinite: true,
-    speed: 1000, // Changed from 2000 to 1000 for smoother transition
+    speed: 1000,
     slidesToShow: 2,
     slidesToScroll: 2,
     centerMode: false,
@@ -102,15 +103,15 @@ const About = () => {
     pauseOnHover: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows: false, // THIS IS THE KEY - DISABLES ALL ARROWS ON MAIN PAGE
+    dots: true, // Keep dots for navigation
     responsive: [
       {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
+          arrows: false, // Disabled on all breakpoints
         }
       },
       {
@@ -118,7 +119,7 @@ const About = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
+          arrows: false,
         }
       },
       {
@@ -126,7 +127,7 @@ const About = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
+          arrows: false,
         }
       },
       {
@@ -134,7 +135,7 @@ const About = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
+          arrows: false,
         }
       },
       {
@@ -143,7 +144,7 @@ const About = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: '40px',
-          arrows: false, // Hide arrows on mobile
+          arrows: false,
         }
       },
       {
@@ -152,49 +153,26 @@ const About = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: '30px',
-          arrows: false, // Hide arrows on small mobile
+          arrows: false,
         }
       }
     ]
   };
 
-  // Fixed Custom Next Arrow Component
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", right: "-45px", zIndex: 10 }}
-        onClick={onClick}
-      >
-        <FaChevronRight style={{ color: "#4a90e2", fontSize: "2rem" }} />
-      </div>
-    );
-  }
-
-  // Fixed Custom Previous Arrow Component
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", left: "-45px", zIndex: 10 }}
-        onClick={onClick}
-      >
-        <FaChevronLeft style={{ color: "#4a90e2", fontSize: "2rem" }} />
-      </div>
-    );
-  }
+  // REMOVE the SampleNextArrow and SamplePrevArrow functions completely
+  // They are not needed since arrows are disabled
 
   const openImageModal = (image, index) => {
     setSelectedImage(image);
     setCurrentIndex(index);
     setSlideDirection('enter');
+    setShowModalButtons(true); // Show buttons when opening modal
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setSlideDirection('exit');
+    setShowModalButtons(false); // Hide buttons when closing modal
     setTimeout(() => {
       setSelectedImage(null);
       document.body.style.overflow = 'auto';
@@ -210,7 +188,7 @@ const About = () => {
       setCurrentIndex(newIndex);
       setSelectedImage(galleryImages[newIndex]);
       setSlideDirection('enter');
-    }, 300); // Increased from 50ms to 300ms to match CSS animation
+    }, 300);
   };
 
   const goToNext = () => {
@@ -222,7 +200,12 @@ const About = () => {
       setCurrentIndex(newIndex);
       setSelectedImage(galleryImages[newIndex]);
       setSlideDirection('enter');
-    }, 300); // Increased from 50ms to 300ms to match CSS animation
+    }, 300);
+  };
+
+  // Toggle buttons visibility
+  const toggleModalButtons = () => {
+    setShowModalButtons(!showModalButtons);
   };
 
   // Handle keyboard navigation
@@ -240,6 +223,10 @@ const About = () => {
         case 'ArrowRight':
           goToNext();
           break;
+        case ' ':
+        case 'Enter':
+          toggleModalButtons();
+          break;
         default:
           break;
       }
@@ -247,7 +234,7 @@ const About = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage, currentIndex]);
+  }, [selectedImage, currentIndex, showModalButtons]);
 
   const getModalContentClass = () => {
     return `modal-content ${slideDirection}`;
@@ -319,7 +306,6 @@ const About = () => {
                       loading="lazy"
                     />
                   </div>
-                  {/* Text content removed as requested */}
                 </div>
               </div>
             ))}
@@ -330,7 +316,7 @@ const About = () => {
       {/* Image Modal with Sliding Effect */}
       {selectedImage && (
         <div 
-          className={`image-modal ${slideDirection === 'exit' ? 'fade-out' : ''}`} 
+          className={`image-modal ${slideDirection === 'exit' ? 'fade-out' : ''} ${showModalButtons ? 'show-buttons' : ''}`} 
           onClick={closeImageModal}
         >
           <div 
@@ -341,9 +327,18 @@ const About = () => {
               <FaTimes />
             </button>
             
-            <button className="modal-nav modal-prev" onClick={goToPrevious}>
-              <FaChevronLeft />
-            </button>
+            {/* Modal Navigation Buttons - Conditionally Rendered */}
+            {showModalButtons && (
+              <>
+                <button className="modal-nav modal-prev" onClick={goToPrevious}>
+                  <FaChevronLeft />
+                </button>
+                
+                <button className="modal-nav modal-next" onClick={goToNext}>
+                  <FaChevronRight />
+                </button>
+              </>
+            )}
             
             <div className="modal-image-container">
               <img 
@@ -351,17 +346,20 @@ const About = () => {
                 alt={selectedImage.alt}
                 className="modal-image"
                 key={currentIndex}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleModalButtons();
+                }}
               />
               <div className="image-info">
                 <h3>{selectedImage.alt}</h3>
                 <p className="image-description">{selectedImage.description}</p>
                 <p className="image-counter">Image {selectedImage.number} of {galleryImages.length}</p>
+                <p className="click-instruction">
+                  Click image to {showModalButtons ? 'hide' : 'show'} navigation buttons
+                </p>
               </div>
             </div>
-            
-            <button className="modal-nav modal-next" onClick={goToNext}>
-              <FaChevronRight />
-            </button>
           </div>
         </div>
       )}
