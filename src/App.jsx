@@ -21,7 +21,7 @@ function Home() {
       <JournalContent />
       <Services />
       <Testimonial />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </>
   );

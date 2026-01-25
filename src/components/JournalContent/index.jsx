@@ -45,9 +45,7 @@ const NASRJContent = () => {
           <div className="content-block">
             <p>
               The <strong>International New Arts and Sciences Research Journal (NASRJ)</strong>
-              is a multidisciplinary research journal published once a year in the English language.
-              It provides an avenue for academics, postgraduate students, and practitioners to publish
-              current and significant research papers and scholarly activities.
+             It is a multidisciplinary research journal published twice a year (or more) in the English language. It provides a platform for academics, postgraduate students, and practitioners to publish current and significant research papers and scholarly work.
             </p>
             <p>
               NASRJ encourages submissions from all disciplines, including research papers, book reviews,

@@ -6,67 +6,114 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* Main Footer Content */}
+      {/* Main Footer */}
       <div className="footer-main">
         <div className="container">
-          <div className="footer-grid">
-            {/* Brand Column */}
-            <div className="footer-column brand-column">
-              <div className="brand-info">
-                <h3 className="brand-title">inasrjournal</h3>
-                <p className="brand-tagline">
-Discover groundbreaking research across diverse fields of human knowledge in our annual magazine.                </p>
-                <div className="certifications">
-                  <span className="cert-badge">Licensed</span>
-                  <span className="cert-badge">Insured</span>
-                  <span className="cert-badge">EPA Certified</span>
-                  <span className="cert-badge">NATE Certified</span>
+          <div className="footer-content">
+            {/* Brand Section */}
+            <div className="footer-brand">
+              <div className="brand-header">
+                <div className="brand-icon">📚</div>
+                <div className="brand-info">
+                  <h2 className="brand-title">
+                    International New Arts and Sciences Research Journal
+                  </h2>
+                  <p className="brand-subtitle">
+                    A Peer-Reviewed Open Access Academic Journal
+                  </p>
                 </div>
               </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="footer-column links-column">
-              <h4 className="column-title">Quick Links</h4>
-              <div className="footer-links">
-                <a href="/" className="footer-link">Home</a>
-                <a href="/about" className="footer-link">About</a>
-                <a href="/services" className="footer-link">Submission</a>
-                <a href="/projects" className="footer-link">Publication</a>
-                <a href="/testimonials" className="footer-link">Testimonials</a>
-                <a href="/contact" className="footer-link">Contact</a>
+              
+              <div className="brand-description">
+                <p>
+                  Dedicated to advancing interdisciplinary research in arts and sciences through 
+                  rigorous peer-review, global scholarly collaboration, and open access publishing.
+                </p>
               </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="footer-column contact-column">
-              <h4 className="column-title">Contact Info</h4>
-              <div className="contact-info">
-                <div className="contact-item">
-                  <div className="contact-icon">📍</div>
-                  <div className="contact-details">
-                    <p>Chicago, IL, USA</p>
-                    <span>Serving Chicago & Suburbs</span>
+              
+              {/* Journal Highlights */}
+              <div className="journal-highlights">
+                <div className="highlight-item">
+                  <span className="highlight-icon">⭐</span>
+                  <div className="highlight-content">
+                    <h4>High Impact</h4>
+                    <p>Rigorous peer-review process</p>
                   </div>
                 </div>
-                <div className="contact-item">
-                  <div className="contact-icon">🕒</div>
-                  <div className="contact-details">
-                    <p>24/7 Emergency Service</p>
-                    <span>Available for urgent repairs</span>
+                <div className="highlight-item">
+                  <span className="highlight-icon">🌐</span>
+                  <div className="highlight-content">
+                    <h4>Global Reach</h4>
+                    <p>International editorial board</p>
                   </div>
                 </div>
-                <div className="contact-item">
-                  <div className="contact-icon">📞</div>
-                  <div className="contact-details">
-                    <p>Call for Free Estimate</p>
-                    <span>Licensed & Insured Professionals</span>
+                <div className="highlight-item">
+                  <span className="highlight-icon">🔓</span>
+                  <div className="highlight-content">
+                    <h4>Open Access</h4>
+                    <p>Free access to all research</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            
+            {/* Contact & Submission Info */}
+            <div className="footer-contact">
+              <div className="contact-section">
+                <h3 className="section-title">Journal Information</h3>
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <span className="contact-icon">📧</span>
+                    <div className="contact-details">
+                      <h4>Submissions</h4>
+                      <p>submit@nasrjournal.org</p>
+                    </div>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-icon">📞</span>
+                    <div className="contact-details">
+                      <h4>Editorial Office</h4>
+                      <p>+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-icon">🏢</span>
+                    <div className="contact-details">
+                      <h4>Publisher</h4>
+                      <p>NASRJ Publications, Chicago, IL</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Submission Timeline */}
+              <div className="timeline-section">
+                <h3 className="section-title">Publication Timeline</h3>
+                <div className="timeline">
+                  <div className="timeline-step">
+                    <div className="step-number">1</div>
+                    <div className="step-info">
+                      <h4>Submission</h4>
+                      <p>Continuous</p>
+                    </div>
+                  </div>
+                  <div className="timeline-step">
+                    <div className="step-number">2</div>
+                    <div className="step-info">
+                      <h4>Review</h4>
+                      <p>4-6 weeks</p>
+                    </div>
+                  </div>
+                  <div className="timeline-step">
+                    <div className="step-number">3</div>
+                    <div className="step-info">
+                      <h4>Publication</h4>
+                      <p>Quarterly issues</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -74,45 +121,71 @@ Discover groundbreaking research across diverse fields of human knowledge in our
       {/* Footer Bottom */}
       <div className="footer-bottom">
         <div className="container">
-          {/* Company Info */}
-          <div className="company-info">
-            <p className="company-name">
-International
-New Arts and Sciences
-Research Journal</p>
-            <p className="service-area">
-              <strong>Service Areas:</strong> Chicago and surrounding suburbs 
-            </p>
+          {/* Indexing & Abstracting */}
+          <div className="indexing-section">
+            <h3 className="indexing-title">Indexed & Abstracted In</h3>
+            <div className="indexing-partners">
+              <div className="partner-logo">
+                <span className="partner-icon">📊</span>
+                <span className="partner-name">Google Scholar</span>
+              </div>
+              <div className="partner-logo">
+                <span className="partner-icon">🏛️</span>
+                <span className="partner-name">Library of Congress</span>
+              </div>
+              <div className="partner-logo">
+                <span className="partner-icon">🔗</span>
+                <span className="partner-name">CrossRef</span>
+              </div>
+              <div className="partner-logo">
+                <span className="partner-icon">📈</span>
+                <span className="partner-name">Thomson Reuters</span>
+              </div>
+            </div>
           </div>
 
-          {/* Legal Links */}
-          <div className="legal-links">
-            <a href="/privacy-policy" className="legal-link">Privacy Policy</a>
-            <a href="/terms" className="legal-link">Terms of Service</a>
-            <a href="/cookies" className="legal-link">Cookie Policy</a>
-            <a href="/accessibility" className="legal-link">Accessibility</a>
-            <a href="/cancellation" className="legal-link">Cancellation Policy</a>
-            <a href="/warranty" className="legal-link">Warranty</a>
-            <a href="/financing" className="legal-link">Financing</a>
+          {/* Policies & Copyright */}
+          <div className="policies-section">
+            <div className="copyright-info">
+              <div className="copyright-text">
+                <p>© {currentYear} International New Arts and Sciences Research Journal (NASRJ)</p>
+                <p>All rights reserved. ISSN: [To be assigned] | e-ISSN: [To be assigned]</p>
+              </div>
+              <div className="copyright-badges">
+                <span className="badge">Open Access</span>
+                <span className="badge">Peer Reviewed</span>
+                <span className="badge">Creative Commons</span>
+              </div>
+            </div>
+
+            <div className="policies-links">
+              <a href="/privacy-policy" className="policy-link">Privacy Policy</a>
+              <a href="/terms" className="policy-link">Terms of Use</a>
+              <a href="/ethics" className="policy-link">Publication Ethics</a>
+              <a href="/copyright" className="policy-link">Copyright</a>
+              <a href="/archiving" className="policy-link">Archiving Policy</a>
+            </div>
+
+            <div className="legal-disclaimer">
+              <div className="disclaimer-icon">📝</div>
+              <p className="disclaimer-text">
+                This journal follows the Committee on Publication Ethics (COPE) guidelines. 
+                All submissions undergo rigorous double-blind peer review. Published under 
+                Creative Commons Attribution 4.0 International License.
+              </p>
+            </div>
           </div>
 
-          {/* Disclaimer */}
-          <div className="disclaimer">
-            <p>
-              *Disclaimer: All information provided on this website is for general informational purposes only. 
-              Service availability, pricing, and promotions may vary. All services subject to terms and conditions. 
-              Licensed and regulated by the State of Illinois. Contact us directly for confirmed quotes, availability, 
-              and emergency services. Not all services available in all areas.*
-            </p>
-          </div>
-
-          {/* Copyright */}
-          <div className="copyright">
-            <p>© {currentYear } 
- &nbsp; International
-New Arts and Sciences
-Research Journal. All rights reserved.</p>
-            <p className="developer-credit">Website designed & developed by Zaid Fadel</p>
+          {/* Developer Credit */}
+          <div className="developer-section">
+            <div className="developer-info">
+              <span className="developer-icon">💻</span>
+              <span className="developer-text">Website developed by Zaid Fadel</span>
+            </div>
+            <div className="accessibility-info">
+              <span className="accessibility-icon">♿</span>
+              <span className="accessibility-text">WCAG 2.1 AA Compliant</span>
+            </div>
           </div>
         </div>
       </div>
