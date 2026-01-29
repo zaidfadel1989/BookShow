@@ -17,7 +17,7 @@ export const navTabs = [
     {name:"Home",id:'header'},
     {name:"Project",id:'project'},
     {name:"About",id:'about'},
-    {name:"team",id:'team'},
+    {name:"Team",id:'team'},
     {name:"Submissions",id:'services'},
     {name:"Testimonial",id:'testimonial'},
 

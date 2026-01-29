@@ -74,7 +74,7 @@ useGSAP(()=>{
         }
       </div>
       <div className='box buttons'>
-        <Link to='contact' className='btn contact__btn'>Contact Us</Link>
+        {/* <Link to='contact' className='btn contact__btn'>Contact Us</Link> */}
       <div 
       className="icon__container menu__btn"
       onClick={()=>setOpen(!open)}
